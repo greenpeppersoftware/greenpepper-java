@@ -1,0 +1,1093 @@
+<html><head>
+<title>Bank</title>
+<style>
+/*
+    This stylesheet defines styles that only apply to the Default theme. Styles common to all themes should go in
+    master.css
+*/
+
+body {
+    /* Page-level left and right padding. Internal content that needs to be full-width should use 'margin: 0 -10px'. */
+    margin: 0;
+    border-left: solid #fff 10px;
+    border-right: solid #fff 10px;
+    font-family: Helvetica, Arial, sans-serif;
+    position: relative;
+}
+
+#header {
+    margin: 0 -10px;
+    padding: 0 10px;
+    /*overflow: auto;*/
+}
+
+#user-control-panel, #page-view-panel {
+    float: right;
+}
+
+#com-atlassian-confluence h1 img {
+    max-height: 2.5em; /* scale logo image with font size */
+}
+
+h1 span.title-text {
+    display: table; /* page title wrapping drops straight down */
+}
+h1 a:hover {
+    color: #369;
+}
+
+#main {
+    padding: 0 0 20px 0;
+    border-top: solid #fff 10px;
+    border-bottom: solid #fff 10px;
+}
+
+#content {
+    clear: left;
+}
+
+#quick-search-submit {
+    display: none;
+}
+
+#user-control-panel {
+    display: none;   
+}
+
+#user-control-panel li {
+    border-left: solid 1px;
+}
+
+#user-control-panel li.first {
+    border: none;
+}
+
+#user-control-panel li, #page-view-panel li, #page-prefs-list li {
+    color: #666;
+    float: left;
+    font-size: .9em;
+    margin: 0 0 0 .3em;
+    padding: 0 0 0 .3em;
+}
+
+#user-control-panel a {
+    color: #666;
+}
+
+#navigation {
+    display: inline;
+}
+
+.page-actions {
+    float: right;
+    border: solid 1px #ccc;
+    padding: 5px;
+    margin-left: 10px;
+}
+
+.remove-control {
+    display: none;
+}
+
+.page-metadata {
+    color: #666;
+    font-size: 0.9em;
+    margin: 10px 0;
+}
+.page-metadata a:link,
+.page-metadata a:active,
+.page-metadata a:hover,
+.page-metadata a:visited {
+    color: #666;
+    font-style: normal;
+}
+/*#labels-edit {*/
+    /*font-style: normal;*/
+/*}*/
+
+.section-header {
+    margin-bottom: 5px;
+    padding: 2px 0;    
+}
+
+/* All links are set to action.linkColor but section header links are grey */
+.section-header a:link,
+.section-header a:active,
+.section-header a:hover,
+.section-header a:visited {
+    color: #666;
+}
+
+h2.section-title,
+.pageSectionTitle {
+    font-size: 12pt;
+    font-weight: bold;
+    color: black;
+    margin-top: 20px;
+    padding: 0;
+    display: inline;
+}
+
+.section-title a:link,
+.section-title a:active,
+.section-title a:hover,
+.section-title a:visited,
+a.pageSectionTitle:link,
+a.pageSectionTitle:active,
+a.pageSectionTitle:hover,
+a.pageSectionTitle:visited {
+    color: black;
+}
+
+.submit-buttons input {
+    position: relative;
+    top: -10px;
+}
+
+#sidebar {
+    clear: right;
+    float: right;
+    width: 16em;
+}
+#content.edit form.markup {
+    margin-right: 16em;
+}
+.sidebar-content {
+    margin: 10px 0 0 1em;
+}
+.blogcalendar {
+    width: 15em;
+}
+.blogcalendar th a.calendarhead,
+.blogcalendar th.calendarhead {
+    font-size: 1em;
+}
+.blogcalendar td,
+.blogcalendar th {
+    font-size: .85em;
+}
+
+/* folder tab link styles */
+.tabnav .tabs a {
+    padding: 5px 5px 4px;
+    margin: 5px 3px 0 0;
+    border-width: 1px;
+    border-style: solid;
+    border-bottom: none;
+    text-decoration: none;
+    display: block;
+    float: left;
+}
+
+.tabnav .tabs a.current {
+    background: white;
+    border-bottom: 1px solid white;
+    color: black;
+}
+.tabnav .tabs a.current:link, .tabnav .tabs a.current:visited {
+    color: black;
+}
+.tabnav .tabs a.current:hover {
+    background: white;
+    border-bottom: 1px solid white;
+    color: black;
+}
+
+/* list page navigational tabs */
+.tabnav, .comment .tabnav {
+    padding: 0;
+    margin: 0;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    float: left;
+    display: inline;
+    list-style-position: outside;
+    width: 100%;
+    font-weight: bold;
+    font-size: 10pt;
+}
+
+.after-tabnav {
+    clear: both;
+}
+
+.tabnav li.tabs {
+    list-style: none;
+    margin: 0 0 -1px 10px;
+    float: left;
+    display: block;
+}
+
+
+/* dashboard customization */
+#spacesLabel {
+    padding: 4px 6px;
+    float: left;
+    margin-top: 5px;
+}
+
+#footer #poweredby {
+    font-size: 0.9em;
+    margin: 0 -10px;
+}
+</style>
+<base href="http://localhost"/>
+</head>
+<body>
+<div id="Content" style="text-align:left; padding: 5px;">
+
+<table style="display:none">
+	<tr>
+		<td>Import</td>
+	</tr>
+			<tr>
+			<td>com.greenpepper.confluence.demo.bank</td>
+		</tr>
+	</table>
+
+<h3><a name="Bank-AccountManagementExample"></a>Account Management Example</h3>
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> do with </th>
+<th class='confluenceTh'> Bank </th>
+</tr>
+<tr>
+<td class='confluenceTd'> open checking account </td>
+<td class='confluenceTd'> 12345-67890 </td>
+<td class='confluenceTd'> under the name of </td>
+<td class='confluenceTd'> Bart </td>
+<td class='confluenceTd'> </td>
+<td class='confluenceTd'> Simpson </td>
+</tr>
+<tr>
+<td class='confluenceTd'> check </td>
+<td class='confluenceTd'> that balance of account </td>
+<td class='confluenceTd'> 12345-67890 </td>
+<td class='confluenceTd'> is </td>
+<td class='confluenceTd'> $0.00 </td>
+</tr>
+<tr>
+<td class='confluenceTd'> deposit </td>
+<td class='confluenceTd'> $100.00 </td>
+<td class='confluenceTd'> in account </td>
+<td class='confluenceTd'> 12345-67890 </td>
+</tr>
+<tr>
+<td class='confluenceTd'> check </td>
+<td class='confluenceTd'> that balance of account </td>
+<td class='confluenceTd'> 12345-67890 </td>
+<td class='confluenceTd'> is </td>
+<td class='confluenceTd'> $100.00 </td>
+</tr>
+<tr>
+<td class='confluenceTd'> withdraw </td>
+<td class='confluenceTd'> $50.00 </td>
+<td class='confluenceTd'> from account </td>
+<td class='confluenceTd'> 12345-67890 </td>
+</tr>
+<tr>
+<td class='confluenceTd'> check </td>
+<td class='confluenceTd'> that balance of account </td>
+<td class='confluenceTd'> 12345-67890 </td>
+<td class='confluenceTd'> is </td>
+<td class='confluenceTd'> $50.00 </td>
+</tr>
+<tr>
+<td class='confluenceTd'> reject</td>
+<td class='confluenceTd'> withdraw </td>
+<td class='confluenceTd'> $75.00 </td>
+<td class='confluenceTd'> from account </td>
+<td class='confluenceTd'> 12345-67890 </td>
+</tr>
+<tr>
+<td class='confluenceTd'> check </td>
+<td class='confluenceTd'> that balance of account </td>
+<td class='confluenceTd'> 12345-67890 </td>
+<td class='confluenceTd'> is </td>
+<td class='confluenceTd'> $50.00 </td>
+</tr>
+<tr>
+<td class='confluenceTd'> accept </td>
+<td class='confluenceTd'> withdraw </td>
+<td class='confluenceTd'> $25.00 </td>
+<td class='confluenceTd'>from account </td>
+<td class='confluenceTd'> 12345-67890 </td>
+</tr>
+</tbody></table>
+
+<table class='confluenceTable'><tbody>
+<tr>
+<td class='confluenceTd'> end </td>
+</tr>
+</tbody></table>
+
+<h3><a name="Bank-Openingdifferentaccounttype"></a>Opening different account type</h3>
+
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> do with </th>
+<th class='confluenceTh'> Bank </th>
+</tr>
+<tr>
+<td class='confluenceTd'> open checking account </td>
+<td class='confluenceTd'> 12345-67890 </td>
+<td class='confluenceTd'> under the name of </td>
+<td class='confluenceTd'> Bart </td>
+<td class='confluenceTd'> </td>
+<td class='confluenceTd'> Simpson </td>
+</tr>
+<tr>
+<td class='confluenceTd'> open savings account </td>
+<td class='confluenceTd'> 54321-09876 </td>
+<td class='confluenceTd'> under the name of </td>
+<td class='confluenceTd'> Lisa </td>
+<td class='confluenceTd'> </td>
+<td class='confluenceTd'> Simpson </td>
+</tr>
+</tbody></table>
+
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> set of </th>
+<th class='confluenceTh'> opened accounts </th>
+</tr>
+<tr>
+<th class='confluenceTh'> number </th>
+<th class='confluenceTh'> type </th>
+<th class='confluenceTh'> owner name </th>
+</tr>
+<tr>
+<td class='confluenceTd'> 12345-67890 </td>
+<td class='confluenceTd'> checking </td>
+<td class='confluenceTd'> Bart Simpson</td>
+</tr>
+<tr>
+<td class='confluenceTd'> 54321-09876 </td>
+<td class='confluenceTd'> savings </td>
+<td class='confluenceTd'> Lisa Simpson </td>
+</tr>
+</tbody></table>
+
+<table class='confluenceTable'><tbody>
+<tr>
+<td class='confluenceTd'> end </td>
+</tr>
+</tbody></table>
+
+<h3><a name="Bank-FreezinganAccount"></a>Freezing an Account</h3>
+
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> do with </th>
+<th class='confluenceTh'> Bank </th>
+</tr>
+<tr>
+<td class='confluenceTd'> create </td>
+<td class='confluenceTd'> savings </td>
+<td class='confluenceTd'> account </td>
+<td class='confluenceTd'>11111-22222 </td>
+<td class='confluenceTd'>for </td>
+<td class='confluenceTd'> Homer </td>
+<td class='confluenceTd'> </td>
+<td class='confluenceTd'> Simpson </td>
+<td class='confluenceTd'> with balance of</td>
+<td class='confluenceTd'> 1546.23</td>
+</tr>
+<tr>
+<td class='confluenceTd'> accept</td>
+<td class='confluenceTd'>withdraw </td>
+<td class='confluenceTd'> $100.00 </td>
+<td class='confluenceTd'>from account</td>
+<td class='confluenceTd'> 11111-22222 </td>
+<td class='confluenceTd'> using </td>
+<td class='confluenceTd'> ATM</td>
+</tr>
+<tr>
+<td class='confluenceTd'> freeze account</td>
+<td class='confluenceTd'> 11111-22222 </td>
+</tr>
+<tr>
+<td class='confluenceTd'> reject</td>
+<td class='confluenceTd'>withdraw </td>
+<td class='confluenceTd'> $100.25 </td>
+<td class='confluenceTd'>from account</td>
+<td class='confluenceTd'> 11111-22222 </td>
+<td class='confluenceTd'> using </td>
+<td class='confluenceTd'> ATM</td>
+</tr>
+<tr>
+<td class='confluenceTd'> accept</td>
+<td class='confluenceTd'>deposit </td>
+<td class='confluenceTd'> $200.00 </td>
+<td class='confluenceTd'>in account</td>
+<td class='confluenceTd'> 11111-22222 </td>
+</tr>
+</tbody></table>
+
+<table class='confluenceTable'><tbody>
+<tr>
+<td class='confluenceTd'> end </td>
+</tr>
+</tbody></table>
+
+<h3><a name="Bank-SourceCode"></a>Source Code</h3>
+<p><span>
+	<span id="includeTitle_GP_INCLUDE_150" style="cursor:pointer;color:blue;font-weight:bold;text-decoration:underline;" onclick="document.getElementById('GP_INCLUDE_150').style.display='block'">AccountType.java</span>
+	<div id="GP_INCLUDE_150" width="100%" style="cursor:pointer;padding:0px 2px;border: 1px solid #cc0000;display:none;" onclick="document.getElementById('GP_INCLUDE_150').style.display='none'"><div class="code panel" style="border-width: 1px;"><div class="codeHeader panelHeader" style="border-bottom-width: 1px;"><b>AccountType.java</b></div><div class="codeContent panelContent">
+<pre class="code-java"><span class="code-keyword">package</span> com.greenpepper.confluence.demo.bank;
+
+<span class="code-keyword">import</span> java.util.EnumMap;
+
+<span class="code-keyword">public</span> <span class="code-keyword">enum</span> AccountType
+{
+
+  SAVINGS(<span class="code-quote">"savings"</span>, Money.$(200f), Money.$(200f), <span class="code-keyword">null</span>, Money.$(1.5f), Money.$(2.5f), Money.$(0.5f)),
+  CHECKING(<span class="code-quote">"checking"</span>, Money.$(200f), Money.$(200f), <span class="code-keyword">null</span>, Money.$(0), Money.$(2.50f), Money.$(0));
+
+  <span class="code-keyword">private</span> <span class="code-keyword">final</span> <span class="code-object">String</span> description;
+
+  <span class="code-keyword">private</span> EnumMap<WithdrawType, Money> limits;
+  <span class="code-keyword">private</span> EnumMap<WithdrawType, Money> fees;
+
+  <span class="code-keyword">private</span> AccountType(<span class="code-object">String</span> description, Money limitBankMachine,
+            Money limitInteracMachine, Money limitPersonalCheck,
+            Money feesBankMachine, Money feesInteracMachine, Money feesPersonalCheck)
+  {
+    <span class="code-keyword">this</span>.description = description;
+    limits = <span class="code-keyword">new</span> EnumMap<WithdrawType, Money>(WithdrawType.class);
+
+    limits.put(WithdrawType.ATM, limitBankMachine);
+    limits.put(WithdrawType.INTERAC, limitInteracMachine);
+    limits.put(WithdrawType.PERSONAL_CHECK, limitPersonalCheck);
+
+    fees = <span class="code-keyword">new</span> EnumMap<WithdrawType, Money>(WithdrawType.class);
+    fees.put(WithdrawType.ATM, feesBankMachine);
+    fees.put(WithdrawType.INTERAC, feesInteracMachine);
+    fees.put(WithdrawType.PERSONAL_CHECK, feesPersonalCheck);
+  }
+
+  @Override
+  <span class="code-keyword">public</span> <span class="code-object">String</span> toString()
+  {
+    <span class="code-keyword">return</span> description;
+  }
+
+  <span class="code-keyword">public</span> Money limitFor(WithdrawType withdrawType)
+  {
+    <span class="code-keyword">return</span> limits.get(withdrawType);
+  }
+
+  <span class="code-keyword">public</span> Money feesFor(WithdrawType withdrawType)
+  {
+    <span class="code-keyword">return</span> fees.get(withdrawType);
+  }
+
+  <span class="code-keyword">public</span> <span class="code-keyword">static</span> <span class="code-object">boolean</span> isNoLimit(Money limit)
+  {
+    <span class="code-keyword">return</span> limit == <span class="code-keyword">null</span>;
+  }
+}</pre>
+</div></div></div>
+</span>
+<br/>
+<span>
+	<span id="includeTitle_GP_INCLUDE_151" style="cursor:pointer;color:blue;font-weight:bold;text-decoration:underline;" onclick="document.getElementById('GP_INCLUDE_151').style.display='block'">Bank.java</span>
+	<div id="GP_INCLUDE_151" width="100%" style="cursor:pointer;padding:0px 2px;border: 1px solid #cc0000;display:none;" onclick="document.getElementById('GP_INCLUDE_151').style.display='none'"><div class="code panel" style="border-width: 1px;"><div class="codeHeader panelHeader" style="border-bottom-width: 1px;"><b>Bank.java</b></div><div class="codeContent panelContent">
+<pre class="code-java"><span class="code-keyword">package</span> com.greenpepper.confluence.demo.bank;
+
+<span class="code-keyword">import</span> java.util.Collection;
+<span class="code-keyword">import</span> java.util.Collections;
+<span class="code-keyword">import</span> java.util.HashMap;
+
+<span class="code-keyword">public</span> class Bank
+{
+
+  <span class="code-keyword">private</span> HashMap<<span class="code-object">String</span>, BankAccount> accounts;
+
+  <span class="code-keyword">public</span> Bank()
+  {
+    accounts = <span class="code-keyword">new</span> HashMap<<span class="code-object">String</span>, BankAccount>();
+  }
+
+  <span class="code-keyword">public</span> <span class="code-object">boolean</span> hasAccount(<span class="code-object">String</span> accountNumber)
+  {
+    <span class="code-keyword">return</span> accounts.containsKey(accountNumber);
+  }
+
+  <span class="code-keyword">public</span> BankAccount getAccount(<span class="code-object">String</span> accountNumber)
+      <span class="code-keyword">throws</span> NoSuchAccountException
+  {
+    <span class="code-keyword">if</span> (!hasAccount(accountNumber))
+    {
+      <span class="code-keyword">throw</span> <span class="code-keyword">new</span> NoSuchAccountException(accountNumber);
+    }
+    <span class="code-keyword">return</span> accounts.get(accountNumber);
+  }
+
+  <span class="code-keyword">public</span> SavingsAccount openSavingsAccount(<span class="code-object">String</span> number, Owner owner)
+  {
+    <span class="code-keyword">if</span> (hasAccount(number))
+    {
+      <span class="code-keyword">return</span> <span class="code-keyword">null</span>;
+    }
+
+    SavingsAccount account = <span class="code-keyword">new</span> SavingsAccount(number, owner);
+    accounts.put(number, account);
+    <span class="code-keyword">return</span> account;
+  }
+
+  <span class="code-keyword">public</span> CheckingAccount openCheckingAccount(<span class="code-object">String</span> number, Owner owner)
+  {
+    <span class="code-keyword">if</span> (hasAccount(number))
+    {
+      <span class="code-keyword">return</span> <span class="code-keyword">null</span>;
+    }
+
+    CheckingAccount account = <span class="code-keyword">new</span> CheckingAccount(number, owner);
+    accounts.put(number, account);
+    <span class="code-keyword">return</span> account;
+  }
+
+  <span class="code-keyword">public</span> Money deposit(Money amount, <span class="code-object">String</span> number)
+      <span class="code-keyword">throws</span> Exception
+  {
+    BankAccount account = accounts.get(number);
+    <span class="code-keyword">return</span> account.deposit(amount);
+  }
+
+  <span class="code-keyword">public</span> Money withdraw(Money amount, <span class="code-object">String</span> number, WithdrawType type)
+      <span class="code-keyword">throws</span> Exception
+  {
+    BankAccount account = accounts.get(number);
+    <span class="code-keyword">return</span> account.withdraw(amount, type);
+  }
+
+  <span class="code-keyword">public</span> void freezeAccount(<span class="code-object">String</span> number)
+  {
+    BankAccount account = accounts.get(number);
+    account.freeze();
+  }
+
+  <span class="code-keyword">public</span> Collection<BankAccount> getAccounts()
+  {
+    <span class="code-keyword">return</span> Collections.unmodifiableCollection(accounts.values());
+  }
+
+  <span class="code-keyword">public</span> void transfer(<span class="code-object">String</span> numberFrom, <span class="code-object">String</span> numberTo, Money amountToTransfert)
+      <span class="code-keyword">throws</span> Exception
+  {
+    <span class="code-keyword">if</span> (!hasAccount(numberFrom))
+    {
+      <span class="code-keyword">throw</span> <span class="code-keyword">new</span> NoSuchAccountException(numberFrom);
+    }
+    <span class="code-keyword">if</span> (!hasAccount(numberTo))
+    {
+      <span class="code-keyword">throw</span> <span class="code-keyword">new</span> NoSuchAccountException(numberTo);
+    }
+
+    BankAccount accountFrom = accounts.get(numberFrom);
+    BankAccount accountTo = accounts.get(numberTo);
+
+    <span class="code-keyword">if</span> (accountFrom.getOwner().getFirstName().equals(accountTo.getOwner().getFirstName())
+      && accountFrom.getOwnerName().equals(accountTo.getOwnerName()))
+    {
+      accountFrom.withdraw(amountToTransfert);
+      accountTo.deposit(amountToTransfert);
+    }
+    <span class="code-keyword">else</span>
+    {
+      <span class="code-keyword">throw</span> <span class="code-keyword">new</span> Exception(<span class="code-quote">"Can't transfer from not owned account !"</span>);
+    }
+  }
+}</pre>
+</div></div></div>
+</span>
+<br/>
+<span>
+	<span id="includeTitle_GP_INCLUDE_152" style="cursor:pointer;color:blue;font-weight:bold;text-decoration:underline;" onclick="document.getElementById('GP_INCLUDE_152').style.display='block'">BankAccount.java</span>
+	<div id="GP_INCLUDE_152" width="100%" style="cursor:pointer;padding:0px 2px;border: 1px solid #cc0000;display:none;" onclick="document.getElementById('GP_INCLUDE_152').style.display='none'"><div class="code panel" style="border-width: 1px;"><div class="codeHeader panelHeader" style="border-bottom-width: 1px;"><b>BankAccount.java</b></div><div class="codeContent panelContent">
+<pre class="code-java"><span class="code-keyword">package</span> com.greenpepper.confluence.demo.bank;
+
+<span class="code-keyword">public</span> <span class="code-keyword">abstract</span> class BankAccount
+{
+
+  <span class="code-keyword">private</span> AccountType type;
+  <span class="code-keyword">private</span> Money balance = Money.ZERO;
+  <span class="code-keyword">private</span> <span class="code-object">String</span> number;
+  <span class="code-keyword">private</span> Owner owner;
+
+  <span class="code-keyword">public</span> <span class="code-object">boolean</span> frozen;
+
+  <span class="code-keyword">public</span> BankAccount(AccountType accountType, <span class="code-object">String</span> number, Owner owner)
+  {
+    <span class="code-keyword">this</span>.number = number;
+    <span class="code-keyword">this</span>.type = accountType;
+    <span class="code-keyword">this</span>.owner = owner;
+  }
+
+  <span class="code-keyword">public</span> <span class="code-keyword">abstract</span> void checkFunds(Money amount)
+      <span class="code-keyword">throws</span> Exception;
+
+  <span class="code-keyword">public</span> Money withdraw(Money amount, WithdrawType withdrawType)
+      <span class="code-keyword">throws</span> Exception
+  {
+
+    Money limit = type.limitFor(withdrawType);
+    <span class="code-keyword">if</span> (!AccountType.isNoLimit(limit) && amount.strictlyGreaterThan(limit))
+    {
+      <span class="code-keyword">throw</span> <span class="code-keyword">new</span> Exception(<span class="code-quote">"Limit overpassed"</span>);
+    }
+    Money fees = type.feesFor(withdrawType);
+    <span class="code-keyword">return</span> withdraw(amount.plus(fees));
+  }
+
+  <span class="code-keyword">public</span> Money withdraw(Money amount)
+      <span class="code-keyword">throws</span> Exception
+  {
+    checkNotFrozen();
+    checkFunds(amount);
+    balance = balance.minus(amount);
+    <span class="code-keyword">return</span> balance;
+  }
+
+  <span class="code-keyword">private</span> void checkNotFrozen()
+      <span class="code-keyword">throws</span> Exception
+  {
+    <span class="code-keyword">if</span> (frozen)
+    {
+      <span class="code-keyword">throw</span> <span class="code-keyword">new</span> Exception(<span class="code-quote">"Acccount frozen!"</span>);
+    }
+  }
+
+  <span class="code-keyword">public</span> <span class="code-object">String</span> getNumber()
+  {
+    <span class="code-keyword">return</span> number;
+  }
+
+  <span class="code-keyword">public</span> Money deposit(Money amount)
+  {
+    balance = balance.plus(amount);
+    <span class="code-keyword">return</span> balance;
+  }
+
+  <span class="code-keyword">public</span> Money getBalance()
+  {
+    <span class="code-keyword">return</span> balance;
+  }
+
+  <span class="code-keyword">public</span> <span class="code-object">boolean</span> isFrozen()
+  {
+    <span class="code-keyword">return</span> frozen;
+  }
+
+  <span class="code-keyword">public</span> void freeze()
+  {
+    frozen = <span class="code-keyword">true</span>;
+  }
+
+  <span class="code-keyword">public</span> AccountType getType()
+  {
+    <span class="code-keyword">return</span> type;
+  }
+
+  <span class="code-keyword">public</span> Owner getOwner()
+  {
+    <span class="code-keyword">return</span> owner;
+  }
+
+  <span class="code-keyword">public</span> <span class="code-object">String</span> getOwnerName()
+  {
+    <span class="code-keyword">return</span> owner.getFullName();
+  }
+}</pre>
+</div></div></div>
+</span>
+<br/>
+<span>
+	<span id="includeTitle_GP_INCLUDE_153" style="cursor:pointer;color:blue;font-weight:bold;text-decoration:underline;" onclick="document.getElementById('GP_INCLUDE_153').style.display='block'">BankFixture.java</span>
+	<div id="GP_INCLUDE_153" width="100%" style="cursor:pointer;padding:0px 2px;border: 1px solid #cc0000;display:none;" onclick="document.getElementById('GP_INCLUDE_153').style.display='none'"><div class="code panel" style="border-width: 1px;"><div class="codeHeader panelHeader" style="border-bottom-width: 1px;"><b>BankFixture.java</b></div><div class="codeContent panelContent">
+<pre class="code-java"><span class="code-keyword">package</span> com.greenpepper.confluence.demo.bank;
+
+<span class="code-keyword">import</span> java.util.Collection;
+
+<span class="code-keyword">public</span> class BankFixture
+{
+
+  <span class="code-keyword">private</span> Bank bank;
+
+  <span class="code-keyword">public</span> BankFixture()
+  {
+    <span class="code-keyword">this</span>.bank = <span class="code-keyword">new</span> Bank();
+  }
+
+  <span class="code-keyword">public</span> <span class="code-object">boolean</span> openSavingsAccountUnderTheNameOf(<span class="code-object">String</span> number, <span class="code-object">String</span> firstName, <span class="code-object">String</span> lastName)
+  {
+    <span class="code-keyword">return</span> bank.openSavingsAccount(number, <span class="code-keyword">new</span> Owner(firstName, lastName)) != <span class="code-keyword">null</span>;
+  }
+
+  <span class="code-keyword">public</span> <span class="code-object">boolean</span> openCheckingAccountUnderTheNameOf(<span class="code-object">String</span> number, <span class="code-object">String</span> firstName, <span class="code-object">String</span> lastName)
+  {
+    <span class="code-keyword">return</span> bank.openCheckingAccount(number, <span class="code-keyword">new</span> Owner(firstName, lastName)) != <span class="code-keyword">null</span>;
+  }
+
+  <span class="code-keyword">public</span> <span class="code-object">boolean</span> openAccountUnderTheNameOf(AccountType type, <span class="code-object">String</span> number, <span class="code-object">String</span> firstName, <span class="code-object">String</span> lastName)
+  {
+    <span class="code-keyword">if</span> (AccountType.SAVINGS == type)
+    {
+      <span class="code-keyword">return</span> openSavingsAccountUnderTheNameOf(number, firstName, lastName);
+    }
+    <span class="code-keyword">else</span> <span class="code-keyword">if</span> (AccountType.CHECKING == type)
+    {
+      <span class="code-keyword">return</span> openCheckingAccountUnderTheNameOf(number, firstName, lastName);
+    }
+    <span class="code-keyword">return</span> <span class="code-keyword">false</span>;
+  }
+
+  <span class="code-keyword">public</span> Money thatBalanceOfAccountIs(<span class="code-object">String</span> accountNumber)
+      <span class="code-keyword">throws</span> Exception
+  {
+    BankAccount account = bank.getAccount(accountNumber);
+    <span class="code-keyword">return</span> account.getBalance();
+  }
+
+  <span class="code-keyword">public</span> <span class="code-object">boolean</span> depositInAccount(Money amount, <span class="code-object">String</span> accountNumber)
+      <span class="code-keyword">throws</span> Exception
+  {
+    <span class="code-keyword">try</span>
+    {
+      bank.deposit(amount, accountNumber);
+      <span class="code-keyword">return</span> <span class="code-keyword">true</span>;
+    }
+    <span class="code-keyword">catch</span> (Exception e)
+    {
+      <span class="code-keyword">return</span> <span class="code-keyword">false</span>;
+    }
+  }
+
+  <span class="code-keyword">public</span> <span class="code-object">boolean</span> withdrawFromAccount(Money amount, <span class="code-object">String</span> accountNumber)
+      <span class="code-keyword">throws</span> Exception
+  {
+    <span class="code-keyword">return</span> withdrawFromAccountUsing(amount, accountNumber, WithdrawType.ATM);
+  }
+
+  <span class="code-keyword">public</span> <span class="code-object">boolean</span> withdrawFromAccountUsing(Money amount, <span class="code-object">String</span> accountNumber, WithdrawType withdrawType)
+      <span class="code-keyword">throws</span> Exception
+  {
+    <span class="code-keyword">try</span>
+    {
+      bank.withdraw(amount, accountNumber, withdrawType);
+    }
+    <span class="code-keyword">catch</span> (Exception e)
+    {
+      <span class="code-keyword">return</span> <span class="code-keyword">false</span>;
+    }
+    <span class="code-keyword">return</span> <span class="code-keyword">true</span>;
+  }
+
+  <span class="code-keyword">public</span> Collection getOpenedAccounts()
+  {
+    <span class="code-keyword">return</span> bank.getAccounts();
+  }
+
+  <span class="code-keyword">public</span> void freezeAccount(<span class="code-object">String</span> accountNumber)
+  {
+    bank.freezeAccount(accountNumber);
+  }
+
+  <span class="code-keyword">public</span> <span class="code-object">boolean</span> createAccountForWithBalanceOf(AccountType type, <span class="code-object">String</span> number, <span class="code-object">String</span> firstName, <span class="code-object">String</span> lastName,
+                         Money balance)
+      <span class="code-keyword">throws</span> Exception
+  {
+    BankAccount account = (type == AccountType.SAVINGS) ?
+                bank.openSavingsAccount(number, <span class="code-keyword">new</span> Owner(firstName, lastName)) :
+                bank.openCheckingAccount(number, <span class="code-keyword">new</span> Owner(firstName, lastName));
+
+    account.deposit(balance);
+    <span class="code-keyword">return</span> <span class="code-keyword">true</span>;
+  }
+
+  <span class="code-keyword">public</span> <span class="code-object">boolean</span> transferFromAccountToAccount(Money amountToTransfer, <span class="code-object">String</span> fromAccountNumber,
+                        <span class="code-object">String</span> toAccountNumber)
+      <span class="code-keyword">throws</span> Exception
+  {
+    <span class="code-keyword">try</span>
+    {
+      bank.transfer(fromAccountNumber, toAccountNumber, amountToTransfer);
+    }
+    <span class="code-keyword">catch</span> (Exception e)
+    {
+      <span class="code-keyword">return</span> <span class="code-keyword">false</span>;
+    }
+    <span class="code-keyword">return</span> <span class="code-keyword">true</span>;
+  }
+}</pre>
+</div></div></div>
+</span>
+<br/>
+<span>
+	<span id="includeTitle_GP_INCLUDE_154" style="cursor:pointer;color:blue;font-weight:bold;text-decoration:underline;" onclick="document.getElementById('GP_INCLUDE_154').style.display='block'">CheckingAccount.java</span>
+	<div id="GP_INCLUDE_154" width="100%" style="cursor:pointer;padding:0px 2px;border: 1px solid #cc0000;display:none;" onclick="document.getElementById('GP_INCLUDE_154').style.display='none'"><div class="code panel" style="border-width: 1px;"><div class="codeHeader panelHeader" style="border-bottom-width: 1px;"><b>CheckingAccount.java</b></div><div class="codeContent panelContent">
+<pre class="code-java"><span class="code-keyword">package</span> com.greenpepper.confluence.demo.bank;
+
+<span class="code-keyword">public</span> class CheckingAccount
+    <span class="code-keyword">extends</span> BankAccount
+{
+
+  <span class="code-keyword">private</span> Money maxCredit = Money.ZERO;
+
+  <span class="code-keyword">public</span> CheckingAccount(<span class="code-object">String</span> number, Owner owner)
+  {
+    <span class="code-keyword">super</span>(AccountType.CHECKING, number, owner);
+  }
+
+  <span class="code-keyword">public</span> void checkFunds(Money amount)
+      <span class="code-keyword">throws</span> Exception
+  {
+    <span class="code-keyword">if</span> (getBalance().plus(maxCredit).lowerThan(amount))
+    {
+      <span class="code-keyword">throw</span> <span class="code-keyword">new</span> Exception(<span class="code-quote">"Not enougth credit !"</span>);
+    }
+  }
+
+  <span class="code-keyword">public</span> void setCreditLine(Money credit)
+  {
+    <span class="code-keyword">this</span>.maxCredit = credit;
+  }
+
+  <span class="code-keyword">public</span> Money limitFor(WithdrawType type)
+  {
+    <span class="code-keyword">return</span> AccountType.CHECKING.limitFor(type);
+  }
+}</pre>
+</div></div></div>
+</span>
+<br/>
+<span>
+	<span id="includeTitle_GP_INCLUDE_155" style="cursor:pointer;color:blue;font-weight:bold;text-decoration:underline;" onclick="document.getElementById('GP_INCLUDE_155').style.display='block'">Money.java</span>
+	<div id="GP_INCLUDE_155" width="100%" style="cursor:pointer;padding:0px 2px;border: 1px solid #cc0000;display:none;" onclick="document.getElementById('GP_INCLUDE_155').style.display='none'"><div class="code panel" style="border-width: 1px;"><div class="codeHeader panelHeader" style="border-bottom-width: 1px;"><b>Money.java</b></div><div class="codeContent panelContent">
+<pre class="code-java"><span class="code-keyword">package</span> com.greenpepper.confluence.demo.bank;
+
+<span class="code-keyword">import</span> java.math.BigDecimal;
+
+<span class="code-keyword">public</span> class Money
+{
+
+  <span class="code-keyword">public</span> <span class="code-keyword">static</span> <span class="code-keyword">final</span> Money ZERO = <span class="code-keyword">new</span> Money(BigDecimal.ZERO);
+  <span class="code-keyword">private</span> <span class="code-keyword">final</span> BigDecimal dollars;
+
+  <span class="code-keyword">public</span> Money(BigDecimal dollars)
+  {
+    <span class="code-keyword">this</span>.dollars = dollars;
+  }
+
+  <span class="code-keyword">public</span> <span class="code-keyword">static</span> Money parse(<span class="code-object">String</span> text)
+  {
+    <span class="code-keyword">return</span> <span class="code-keyword">new</span> Money(<span class="code-keyword">new</span> BigDecimal(normalize(text)));
+  }
+
+  <span class="code-keyword">private</span> <span class="code-keyword">static</span> <span class="code-object">String</span> normalize(<span class="code-object">String</span> text)
+  {
+    <span class="code-keyword">return</span> text.replaceAll(<span class="code-quote">"\\$"</span>, <span class="code-quote">"").replaceAll("</span>,<span class="code-quote">", "</span><span class="code-quote">").replaceAll("</span>\\s<span class="code-quote">", "</span>");
+  }
+
+  <span class="code-keyword">public</span> <span class="code-keyword">static</span> Money dollars(<span class="code-object">float</span> amount)
+  {
+    <span class="code-keyword">return</span> <span class="code-keyword">new</span> Money(<span class="code-keyword">new</span> BigDecimal(amount));
+  }
+
+  <span class="code-keyword">public</span> <span class="code-keyword">static</span> Money $(<span class="code-object">float</span> amount)
+  {
+    <span class="code-keyword">return</span> dollars(amount);
+  }
+
+  <span class="code-keyword">public</span> <span class="code-keyword">static</span> Money zero()
+  {
+    <span class="code-keyword">return</span> dollars(0f);
+  }
+
+  <span class="code-keyword">public</span> <span class="code-object">boolean</span> equals(<span class="code-object">Object</span> other)
+  {
+    <span class="code-keyword">if</span> (other <span class="code-keyword">instanceof</span> Money)
+    {
+      Money that = (Money)other;
+      <span class="code-keyword">return</span> <span class="code-keyword">this</span>.dollars.compareTo(that.dollars) == 0;
+    }
+    <span class="code-keyword">else</span>
+    {
+      <span class="code-keyword">return</span> <span class="code-keyword">false</span>;
+    }
+  }
+
+  <span class="code-keyword">public</span> <span class="code-object">int</span> hashCode()
+  {
+    <span class="code-keyword">return</span> dollars.hashCode();
+  }
+
+  <span class="code-keyword">public</span> <span class="code-object">String</span> toString()
+  {
+    <span class="code-keyword">return</span> <span class="code-quote">"$"</span> + dollars;
+  }
+
+  <span class="code-keyword">public</span> Money times(BigDecimal multiplier)
+  {
+    <span class="code-keyword">return</span> <span class="code-keyword">new</span> Money(dollars.multiply(multiplier));
+  }
+
+  <span class="code-keyword">public</span> Money times(<span class="code-object">float</span> multiplier)
+  {
+    <span class="code-keyword">return</span> <span class="code-keyword">new</span> Money(dollars.multiply(<span class="code-keyword">new</span> BigDecimal(multiplier)));
+  }
+
+  <span class="code-keyword">public</span> Money minus(Money subtrahend)
+  {
+    <span class="code-keyword">return</span> <span class="code-keyword">new</span> Money(dollars.subtract(subtrahend.dollars));
+  }
+
+  <span class="code-keyword">public</span> Money plus(Money addend)
+  {
+    <span class="code-keyword">return</span> <span class="code-keyword">new</span> Money(dollars.add(addend.dollars));
+  }
+
+  <span class="code-keyword">public</span> <span class="code-object">boolean</span> greaterThan(Money money)
+  {
+    <span class="code-keyword">return</span> <span class="code-keyword">this</span>.dollars.compareTo(money.dollars) >= 0;
+  }
+
+  <span class="code-keyword">public</span> <span class="code-object">boolean</span> strictlyGreaterThan(Money money)
+  {
+    <span class="code-keyword">return</span> <span class="code-keyword">this</span>.dollars.compareTo(money.dollars) > 0;
+  }
+
+  <span class="code-keyword">public</span> <span class="code-object">boolean</span> lowerThan(Money money)
+  {
+    <span class="code-keyword">return</span> dollars.compareTo(money.dollars) <= 0;
+  }
+
+  <span class="code-keyword">public</span> <span class="code-object">boolean</span> strictlyLowerThan(Money money)
+  {
+    <span class="code-keyword">return</span> dollars.compareTo(money.dollars) < 0;
+  }
+}</pre>
+</div></div></div>
+</span>
+<br/>
+<span>
+	<span id="includeTitle_GP_INCLUDE_156" style="cursor:pointer;color:blue;font-weight:bold;text-decoration:underline;" onclick="document.getElementById('GP_INCLUDE_156').style.display='block'">NoSuchAccountException.java</span>
+	<div id="GP_INCLUDE_156" width="100%" style="cursor:pointer;padding:0px 2px;border: 1px solid #cc0000;display:none;" onclick="document.getElementById('GP_INCLUDE_156').style.display='none'"><div class="code panel" style="border-width: 1px;"><div class="codeHeader panelHeader" style="border-bottom-width: 1px;"><b>NoSuchAccountException.java</b></div><div class="codeContent panelContent">
+<pre class="code-java"><span class="code-keyword">package</span> com.greenpepper.confluence.demo.bank;
+
+<span class="code-keyword">public</span> class NoSuchAccountException
+    <span class="code-keyword">extends</span> Exception
+{
+
+  <span class="code-keyword">private</span> <span class="code-keyword">final</span> <span class="code-object">String</span> number;
+
+  <span class="code-keyword">public</span> NoSuchAccountException(<span class="code-object">String</span> number)
+  {
+    <span class="code-keyword">this</span>.number = number;
+  }
+
+  <span class="code-keyword">public</span> <span class="code-object">String</span> getNumber()
+  {
+    <span class="code-keyword">return</span> number;
+  }
+
+  <span class="code-keyword">public</span> <span class="code-object">String</span> getMessage()
+  {
+    <span class="code-keyword">return</span> <span class="code-quote">"Account does not exist: "</span> + number;
+  }
+}</pre>
+</div></div></div>
+</span>
+<br/>
+<span>
+	<span id="includeTitle_GP_INCLUDE_157" style="cursor:pointer;color:blue;font-weight:bold;text-decoration:underline;" onclick="document.getElementById('GP_INCLUDE_157').style.display='block'">Owner.java</span>
+	<div id="GP_INCLUDE_157" width="100%" style="cursor:pointer;padding:0px 2px;border: 1px solid #cc0000;display:none;" onclick="document.getElementById('GP_INCLUDE_157').style.display='none'"><div class="code panel" style="border-width: 1px;"><div class="codeHeader panelHeader" style="border-bottom-width: 1px;"><b>Owner.java</b></div><div class="codeContent panelContent">
+<pre class="code-java"><span class="code-keyword">package</span> com.greenpepper.confluence.demo.bank;
+
+<span class="code-keyword">public</span> class Owner
+{
+
+  <span class="code-keyword">private</span> <span class="code-keyword">final</span> <span class="code-object">String</span> firstName;
+  <span class="code-keyword">private</span> <span class="code-keyword">final</span> <span class="code-object">String</span> lastName;
+
+  <span class="code-keyword">public</span> Owner(<span class="code-object">String</span> firstName, <span class="code-object">String</span> lastName)
+  {
+    <span class="code-keyword">this</span>.firstName = firstName;
+    <span class="code-keyword">this</span>.lastName = lastName;
+  }
+
+  <span class="code-keyword">public</span> <span class="code-object">String</span> getFirstName()
+  {
+    <span class="code-keyword">return</span> firstName;
+  }
+
+  <span class="code-keyword">public</span> <span class="code-object">String</span> getLastName()
+  {
+    <span class="code-keyword">return</span> lastName;
+  }
+
+  <span class="code-keyword">public</span> <span class="code-object">String</span> getFullName()
+  {
+    <span class="code-keyword">return</span> firstName + <span class="code-quote">" "</span> + lastName;
+  }
+}</pre>
+</div></div></div>
+</span>
+<br/>
+<span>
+	<span id="includeTitle_GP_INCLUDE_158" style="cursor:pointer;color:blue;font-weight:bold;text-decoration:underline;" onclick="document.getElementById('GP_INCLUDE_158').style.display='block'">SavingsAccount.java</span>
+	<div id="GP_INCLUDE_158" width="100%" style="cursor:pointer;padding:0px 2px;border: 1px solid #cc0000;display:none;" onclick="document.getElementById('GP_INCLUDE_158').style.display='none'"><div class="code panel" style="border-width: 1px;"><div class="codeHeader panelHeader" style="border-bottom-width: 1px;"><b>SavingsAccount.java</b></div><div class="codeContent panelContent">
+<pre class="code-java"><span class="code-keyword">package</span> com.greenpepper.confluence.demo.bank;
+
+<span class="code-keyword">public</span> class SavingsAccount
+    <span class="code-keyword">extends</span> BankAccount
+{
+
+  <span class="code-keyword">public</span> SavingsAccount(<span class="code-object">String</span> number, Owner owner)
+  {
+    <span class="code-keyword">super</span>(AccountType.SAVINGS, number, owner);
+  }
+
+  <span class="code-keyword">public</span> void checkFunds(Money amount)
+      <span class="code-keyword">throws</span> Exception
+  {
+    <span class="code-keyword">if</span> (getBalance().lowerThan(amount))
+    {
+      <span class="code-keyword">throw</span> <span class="code-keyword">new</span> Exception(<span class="code-quote">"Not enougth money !"</span>);
+    }
+  }
+}</pre>
+</div></div></div>
+</span>
+<br/>
+<span>
+	<span id="includeTitle_GP_INCLUDE_159" style="cursor:pointer;color:blue;font-weight:bold;text-decoration:underline;" onclick="document.getElementById('GP_INCLUDE_159').style.display='block'">WithdrawType.java</span>
+	<div id="GP_INCLUDE_159" width="100%" style="cursor:pointer;padding:0px 2px;border: 1px solid #cc0000;display:none;" onclick="document.getElementById('GP_INCLUDE_159').style.display='none'"><div class="code panel" style="border-width: 1px;"><div class="codeHeader panelHeader" style="border-bottom-width: 1px;"><b>WithdrawType.java</b></div><div class="codeContent panelContent">
+<pre class="code-java"><span class="code-keyword">package</span> com.greenpepper.confluence.demo.bank;
+
+<span class="code-keyword">public</span> <span class="code-keyword">enum</span> WithdrawType
+{
+
+  ATM(<span class="code-quote">"ATM"</span>),
+  INTERAC(<span class="code-quote">"Interact"</span>),
+  PERSONAL_CHECK(<span class="code-quote">"Personal Check"</span>);
+
+  <span class="code-keyword">private</span> <span class="code-keyword">final</span> <span class="code-object">String</span> description;
+
+  <span class="code-keyword">private</span> WithdrawType(<span class="code-object">String</span> description)
+  {
+    <span class="code-keyword">this</span>.description = description;
+  }
+
+  @Override
+  <span class="code-keyword">public</span> <span class="code-object">String</span> toString()
+  {
+    <span class="code-keyword">return</span> description;
+  }
+}</pre>
+</div></div></div>
+</span>
+</p>
+</div>
+</body></html>

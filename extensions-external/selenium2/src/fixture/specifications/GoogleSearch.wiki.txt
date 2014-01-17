@@ -1,0 +1,6 @@
+|| Scenario || Google Search ||
+| I am on http://www.google.com |
+| The title is "Google" |
+| I type "GreenPepper" in the search box |
+| I submit the search |
+| The first result is "Home - GreenPepper - GreenPepper" |

@@ -1,0 +1,81 @@
+The HP-35 was HP's first pocket calculator. It was introduced at a time when most calculators had only the four basic functions. The HP-35 was the first pocket calculator with transcendental functions, and the first with RPN.
+The following specifications have been derived from the instructions printed on the back of the calculator. (Image from [http://www.hpmuseum.org/hp35.htm])
+
+!hp35v33q.jpg|width=320|align=center!
+		
+h3. Low battery lights all decimal points.
+		
+|eg.Calculator|
+|volts|watts()|points()|
+|3.75|.500|false|
+|3.60|.500|false|
+|3.45|.500|false|
+|3.30|.500|true|
+
+h3. Improper operations flash display. Press *clx*
+
+|eg.Calculator|
+|key|x()|flash()|
+|100|100|false|
+|enter|100|false|
+|0|0|false|
+|/|0|true|
+|clx|0|false|
+
+h3. *clx* clears the display.
+		
+|eg.Calculator|
+|key|x()|y()|z()|t()|
+|100|100| | | |
+|enter|100|100| | |
+|enter|100|100|100| |
+|enter|100|100|100|100|
+|clx|0|100|100|100|
+
+h3. *clr* clears all registers.
+
+|eg.Calculator|
+|key|x()|y()|z()|t()|
+|100|100| | | |
+|enter|100|100| | |
+|enter|100|100|100| |
+|enter|100|100|100|100|
+|clr|0|0|0|0|
+
+h3. *chs* changes sign of display. May be used as the first entry when entering negative numbers.
+|eg.Calculator|
+|key|x()|y()|
+|100|100|0|
+|chs|-100|0|
+|chs|100|0|
+|enter|100|100|
+|chs|-0|100|
+|100|-100|100|
+
+h3. *eex* causes next entries to become the exponent of x. For negative expoinents *chs* must precede digits.
+
+The operational stack consistes of four registers (x, y, z and t). A fifth register (s) is used for constant storage. The stack is automatically raised by an entry into x or by *rcl* unless the entry or *rcl* immediately follows *clx*, *sto* or *enter*. Follwing any trig function z is duplicated into register t.
+
+All angles are in degrees.
+
+Example (2+3) * (4/5) / sin(30) * (4^-1.5) = 1.0000
+
+| eg.Calculator |
+|key|x()|y()|
+|2|2| |
+|enter|2|2|
+|3|3|2|
+|+|5| |
+|4|4|5|
+|*|20| |
+|5|5|20|
+|/|4| |
+|30|30|4|
+|sin|.5|4|
+|/|6| |
+|-1.5|-1.5|8|
+|enter|-1.5|-1.5|
+|4|4|-1.5|
+|x^y|.125|8|
+|*|1.0000| |
+

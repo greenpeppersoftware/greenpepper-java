@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+
+<project name="greenpepper-runner" default="run">
+
+	<target name="run">
+        <path id="project.class.path">
+            <pathelement path="${java.class.path}/"/>
+        </path>
+
+		<taskdef name="greenpepper" classname="com.greenpepper.runner.ant.AntTaskRunner"/>
+
+		<delete dir="${basedir}/GreenPepperReports"/>
+		<mkdir dir="${basedir}/GreenPepperReports"/>
+
+		<greenpepper suite="false"
+                     input="${basedir}/Unknow.html"
+                     output="${basedir}/GreenPepperReports"
+                     outputType="xml"
+                     failonerror="true"
+                     stopOnFirstFailure="true"
+                     locale="en"
+                     debug="true"
+                     selector="com.greenpepper.document.GreenPepperInterpreterSelector">
+            
+            <systemUnderDevelopment class="com.greenpepper.systemunderdevelopment.DefaultSystemUnderDevelopment"/>
+
+            <repository class="com.greenpepper.repository.FileSystemRepository">
+                <arguments>.</arguments>
+            </repository>
+
+            <classpath refid="project.class.path"/>
+		</greenpepper>
+
+	</target>
+
+</project>

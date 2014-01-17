@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+
+<project name="greenpepper-runner" default="run">
+
+	<target name="run">
+
+        <path id="project.class.path">
+            <pathelement path="${java.class.path}/"/>
+        </path>
+
+		<taskdef name="greenpepper" classname="com.greenpepper.runner.ant.AntTaskRunner"/>
+
+		<delete dir="${basedir}/GreenPepperReports"/>
+		<mkdir dir="${basedir}/GreenPepperReports"/>
+
+		<greenpepper suite="true"
+					 input="GreenPepper-GREENPEPPER"
+					 output="${basedir}/GreenPepperReports"
+					 outputType="plain"
+					 failonerror="false"
+					 locale="en"
+					 debug="true"
+					 selector="com.greenpepper.document.GreenPepperInterpreterSelector">
+
+            <systemUnderDevelopment class="com.greenpepper.systemunderdevelopment.DefaultSystemUnderDevelopment"/>
+            
+			<repository class="com.greenpepper.runner.repository.GreenPepperRepository">
+				<arguments><![CDATA[http://www.greenpeppersoftware.com/confluence/rpc/xmlrpc?handler=greenpepper1&sut=GreenPepperOpen - Core Java&includeStyle=true#GREENPEPPER]]></arguments>
+			</repository>
+
+			<!--
+			<section>
+				<includes>unix</includes>
+			</section>
+			-->
+
+            <classpath refid="project.class.path"/>
+		</greenpepper>
+
+		<!--
+		<greenpepper suite="false"
+					 input="${basedir}/TaskCalculator.html"
+					 output="${basedir}/GreenPepperReports"
+					 outputType="plain"
+					 failonerror="false">
+
+		</greenpepper>
+		-->
+		
+	</target>
+
+</project>

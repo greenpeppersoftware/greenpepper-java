@@ -1,0 +1,18 @@
+|| Do With || Movie Store ||
+| reset movie list |
+| create new movie | Superman Returns | from year | 2006 | with director | Bryan Signer | at a price of | $19.99 |
+| create new movie | Spiderman  | from year | 2002 | with director | Sam Raimi | at a price of | $15.99 |
+| create new movie | Spiderman 2  | from year | 2004 | with director | Sam Raimi | at a price of | $15.99 |
+| create new movie | Fight Club  | from year | 1999 | with director | David Fincher | at a price of | $8.99 |
+| check	| that price of movie | Spiderman 2 | is equals to | $15.99 |
+| check	| that price of movie | Spiderman 2 | with tax rate of | 15% | is equals to | $18.39 |
+| check	| that price of movie | Fight Club | with tax rate of | 11% | is equals to | $9.89 |
+| check	| that price of movie | X-Men Origins: Wolverine | is equals to | $35.99 |
+
+|| List Of || Movie List ||
+|| Title || Year || Director || Price ||
+| Superman Returns | 2006 | Bryan Signer | 19.99 |
+| Spiderman | 2002 | Sam Raimi | 15.99 |
+| Spiderman 2 | 2004 | Sam Raimi | 15.99 |
+| X-Men Origins: Wolverine | 2009 | Gavin Hood | 35.99 |
+| Iron Man | 2008 | Jon Favreau | 21.50 |

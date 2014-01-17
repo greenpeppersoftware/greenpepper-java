@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+
+<project name="greenpepper-runner" default="run">
+
+	<target name="run">
+
+		<taskdef name="greenpepper" classname="com.greenpepper.runner.ant.AntTaskRunner"/>
+
+		<delete dir="${basedir}/GreenPepperReports"/>
+		<mkdir dir="${basedir}/GreenPepperReports"/>
+
+		<greenpepper suite="true"
+                     input="input.html"
+                     output="output.dir"
+                     outputType="xml"
+                     failonerror="true"
+                     stopOnFirstFailure="true"
+                     locale="fr"
+                     debug="true"
+                     selector="com.greenpepper.document.GreenPepperInterpreterSelector">
+            
+            <systemUnderDevelopment class="com.greenpepper.systemunderdevelopment.DefaultSystemUnderDevelopment">
+                <arguments>A1</arguments>
+                <arguments>B1</arguments>
+            </systemUnderDevelopment>
+
+            <repository class="com.greenpepper.repository.FileSystemRepository">
+                <arguments>A2</arguments>
+                <arguments>B2</arguments>
+            </repository>
+
+            <section>
+                <includes>unix</includes>
+            </section>
+		</greenpepper>
+
+	</target>
+
+</project>

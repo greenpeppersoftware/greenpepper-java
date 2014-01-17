@@ -1,0 +1,70 @@
+{greenpepper-import:com.greenpepper.extensions}
+
+||do with | Rest Fixture || on | http://localhost:9998 |
+
+h3. GET example
+
+{quote}
+|| GET | /helloworld |
+||check | response status         | 200 |
+||check | response header         || Content-Type | text/plain  |
+||check | response body           | Hello World |
+{quote}
+
+{quote}
+|| GET | /unknown|
+||check | response status | 404 |
+{quote}
+
+h3. POST example (create resource)
+{quote}
+||set request body| Hello GreenPepper |
+
+||POST  | /messages|
+||check | response status | 201 |
+||check | response header || Location | http://localhost:9998/messages/0 |
+
+||GET   | /messages/0|
+||check | response status | 200 |
+||check | response body | Hello GreenPepper |
+{quote}
+
+h3. Request with custom header example
+{quote}
+|| set request header |Accept|| as | application/xml|
+
+||GET   | /messages/0|
+||check | response status | 200 |
+||check | response body | {code:xml}&#60;?xml version="1.0"&#62;&#60;message id="0" value="Hello GreenPepper" /&#62;{code}
+{quote}
+
+h3. PUT example (update resource)
+{quote}
+||set request body| Hello from GreenPepper |
+
+||PUT  | /messages/0|
+||check | response status | 200 |
+
+||GET   | /messages/0|
+||check | response body | Hello from GreenPepper |
+{quote}
+
+h3. HEAD example (check if specified resource exists)
+{quote}
+||HEAD  | /messages/0|
+||check | response status | 200 |
+
+||HEAD  | /messages/1|
+||check | response status | 404 |
+{quote}
+
+h3. DELETE example
+{quote}
+||DELETE| /messages/0|
+||check | response status | 200 |
+
+||GET   | /messages/0|
+||check | response status | 404 |
+{quote}
+
+||end||

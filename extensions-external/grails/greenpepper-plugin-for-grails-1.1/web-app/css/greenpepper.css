@@ -1,0 +1,11 @@
+.menuButton a.greenpepper {
+    background: url(../images/greenpepper/greenpepper_16.png) center left no-repeat;
+    color: #333;
+    padding-left: 25px;
+}
+
+a.greenpepper-run {
+    background: url(../images/greenpepper/control_play_green.png) center left no-repeat;
+    color: #333;
+    padding-left: 25px;
+}

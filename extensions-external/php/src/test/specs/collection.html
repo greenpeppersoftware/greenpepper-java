@@ -1,0 +1,560 @@
+<html><head>
+<title>Collection</title>
+<style>
+/*
+    This stylesheet defines styles that only apply to the Default theme. Styles common to all themes should go in
+    master.css
+*/
+
+body {
+    /* Page-level left and right padding. Internal content that needs to be full-width should use 'margin: 0 -10px'. */
+    margin: 0;
+    border-left: solid #fff 10px;
+    border-right: solid #fff 10px;
+    font-family: Helvetica, Arial, sans-serif;
+    position: relative;
+}
+
+#header {
+    margin: 0 -10px;
+    padding: 0 10px;
+    /*overflow: auto;*/
+}
+
+#user-control-panel, #page-view-panel {
+    float: right;
+}
+
+#com-atlassian-confluence h1 img {
+    max-height: 2.5em; /* scale logo image with font size */
+}
+
+h1 span.title-text {
+    display: table; /* page title wrapping drops straight down */
+}
+h1 a:hover {
+    color: #369;
+}
+
+#main {
+    padding: 0 0 20px 0;
+    border-top: solid #fff 10px;
+    border-bottom: solid #fff 10px;
+}
+
+#content {
+    clear: left;
+}
+
+#quick-search-submit {
+    display: none;
+}
+
+#user-control-panel {
+    display: none;   
+}
+
+#user-control-panel li {
+    border-left: solid 1px;
+}
+
+#user-control-panel li.first {
+    border: none;
+}
+
+#user-control-panel li, #page-view-panel li, #page-prefs-list li {
+    color: #666;
+    float: left;
+    font-size: .9em;
+    margin: 0 0 0 .3em;
+    padding: 0 0 0 .3em;
+}
+
+#user-control-panel a {
+    color: #666;
+}
+
+#navigation {
+    display: inline;
+}
+
+.page-actions {
+    float: right;
+    border: solid 1px #ccc;
+    padding: 5px;
+    margin-left: 10px;
+}
+
+.remove-control {
+    display: none;
+}
+
+.page-metadata {
+    color: #666;
+    font-size: 0.9em;
+    margin: 10px 0;
+}
+.page-metadata a:link,
+.page-metadata a:active,
+.page-metadata a:hover,
+.page-metadata a:visited {
+    color: #666;
+    font-style: normal;
+}
+/*#labels-edit {*/
+    /*font-style: normal;*/
+/*}*/
+
+.section-header {
+    margin-bottom: 5px;
+    padding: 2px 0;    
+}
+
+/* All links are set to action.linkColor but section header links are grey */
+.section-header a:link,
+.section-header a:active,
+.section-header a:hover,
+.section-header a:visited {
+    color: #666;
+}
+
+h2.section-title,
+.pageSectionTitle {
+    font-size: 12pt;
+    font-weight: bold;
+    color: black;
+    margin-top: 20px;
+    padding: 0;
+    display: inline;
+}
+
+.section-title a:link,
+.section-title a:active,
+.section-title a:hover,
+.section-title a:visited,
+a.pageSectionTitle:link,
+a.pageSectionTitle:active,
+a.pageSectionTitle:hover,
+a.pageSectionTitle:visited {
+    color: black;
+}
+
+.submit-buttons input {
+    position: relative;
+    top: -10px;
+}
+
+#sidebar {
+    clear: right;
+    float: right;
+    width: 16em;
+}
+#content.edit form.markup {
+    margin-right: 16em;
+}
+.sidebar-content {
+    margin: 10px 0 0 1em;
+}
+.blogcalendar {
+    width: 15em;
+}
+.blogcalendar th a.calendarhead,
+.blogcalendar th.calendarhead {
+    font-size: 1em;
+}
+.blogcalendar td,
+.blogcalendar th {
+    font-size: .85em;
+}
+
+/* folder tab link styles */
+.tabnav .tabs a {
+    padding: 5px 5px 4px;
+    margin: 5px 3px 0 0;
+    border-width: 1px;
+    border-style: solid;
+    border-bottom: none;
+    text-decoration: none;
+    display: block;
+    float: left;
+}
+
+.tabnav .tabs a.current {
+    background: white;
+    border-bottom: 1px solid white;
+    color: black;
+}
+.tabnav .tabs a.current:link, .tabnav .tabs a.current:visited {
+    color: black;
+}
+.tabnav .tabs a.current:hover {
+    background: white;
+    border-bottom: 1px solid white;
+    color: black;
+}
+
+/* list page navigational tabs */
+.tabnav, .comment .tabnav {
+    padding: 0;
+    margin: 0;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    float: left;
+    display: inline;
+    list-style-position: outside;
+    width: 100%;
+    font-weight: bold;
+    font-size: 10pt;
+}
+
+.after-tabnav {
+    clear: both;
+}
+
+.tabnav li.tabs {
+    list-style: none;
+    margin: 0 0 -1px 10px;
+    float: left;
+    display: block;
+}
+
+
+/* dashboard customization */
+#spacesLabel {
+    padding: 4px 6px;
+    float: left;
+    margin-top: 5px;
+}
+
+#footer #poweredby {
+    font-size: 0.9em;
+    margin: 0 -10px;
+}
+</style>
+<base href="http://localhost"/>
+</head>
+<body>
+<div id="Content" style="text-align:left; padding: 5px;">
+
+<p><b><tt>ListOfInterpreter</tt> : The requirement list should be the same as the SUD list (order is important).</b></p>
+
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> list of </th>
+<th class='confluenceTh'> Canada Province Codes </th>
+</tr>
+<tr>
+<th class='confluenceTh'> Name </th>
+<th class='confluenceTh'> Code </th>
+</tr>
+<tr>
+<td class='confluenceTd'> ALBERTA </td>
+<td class='confluenceTd'> AB </td>
+</tr>
+<tr>
+<td class='confluenceTd'> BRITISH COLUMBIA </td>
+<td class='confluenceTd'> BC </td>
+</tr>
+<tr>
+<td class='confluenceTd'> MANITOBA </td>
+<td class='confluenceTd'> MB </td>
+</tr>
+<tr>
+<td class='confluenceTd'> NEW BRUNSWICK </td>
+<td class='confluenceTd'> NB </td>
+</tr>
+<tr>
+<td class='confluenceTd'> NEWFOUNDLAND and LABRADOR </td>
+<td class='confluenceTd'> NL </td>
+</tr>
+<tr>
+<td class='confluenceTd'> NOVA SCOTIA </td>
+<td class='confluenceTd'> NS </td>
+</tr>
+<tr>
+<td class='confluenceTd'> NUNAVUT </td>
+<td class='confluenceTd'> NU </td>
+</tr>
+<tr>
+<td class='confluenceTd'> ONTARIO </td>
+<td class='confluenceTd'> ON </td>
+</tr>
+<tr>
+<td class='confluenceTd'> PRINCE EDWARD ISLAND </td>
+<td class='confluenceTd'> PE </td>
+</tr>
+<tr>
+<td class='confluenceTd'> QUEBEC </td>
+<td class='confluenceTd'> QC </td>
+</tr>
+<tr>
+<td class='confluenceTd'> SASKATCHEWAN </td>
+<td class='confluenceTd'> SK </td>
+</tr>
+<tr>
+<td class='confluenceTd'> YUKON </td>
+<td class='confluenceTd'> YT </td>
+</tr>
+</tbody></table>
+
+<p><b><tt>SetOfInterpreter</tt> : The requirement set should be the same as the SUD set (order is NOT important).</b></p>
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> set of </th>
+<th class='confluenceTh'> Canada Province Codes </th>
+</tr>
+<tr>
+<th class='confluenceTh'> Name </th>
+<th class='confluenceTh'> Code </th>
+</tr>
+<tr>
+<td class='confluenceTd'> YUKON </td>
+<td class='confluenceTd'> YT </td>
+</tr>
+<tr>
+<td class='confluenceTd'> ALBERTA </td>
+<td class='confluenceTd'> AB </td>
+</tr>
+<tr>
+<td class='confluenceTd'> BRITISH COLUMBIA </td>
+<td class='confluenceTd'> BC </td>
+</tr>
+<tr>
+<td class='confluenceTd'> MANITOBA </td>
+<td class='confluenceTd'> MB </td>
+</tr>
+<tr>
+<td class='confluenceTd'> SASKATCHEWAN </td>
+<td class='confluenceTd'> SK </td>
+</tr>
+<tr>
+<td class='confluenceTd'> NEWFOUNDLAND and LABRADOR </td>
+<td class='confluenceTd'> NL </td>
+</tr>
+<tr>
+<td class='confluenceTd'> NOVA SCOTIA </td>
+<td class='confluenceTd'> NS </td>
+</tr>
+<tr>
+<td class='confluenceTd'> NUNAVUT </td>
+<td class='confluenceTd'> NU </td>
+</tr>
+<tr>
+<td class='confluenceTd'> PRINCE EDWARD ISLAND </td>
+<td class='confluenceTd'> PE </td>
+</tr>
+<tr>
+<td class='confluenceTd'> QUEBEC </td>
+<td class='confluenceTd'> QC </td>
+</tr>
+<tr>
+<td class='confluenceTd'> ONTARIO </td>
+<td class='confluenceTd'> ON </td>
+</tr>
+<tr>
+<td class='confluenceTd'> NEW BRUNSWICK </td>
+<td class='confluenceTd'> NB </td>
+</tr>
+</tbody></table>
+
+<p><b><tt>SubsetOfInterpreter</tt> : The requirement set should be a subset of the SUD set (subset of the full list).</b></p>
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> subset of </th>
+<th class='confluenceTh'> Canada Province Codes </th>
+</tr>
+<tr>
+<th class='confluenceTh'> Name </th>
+<th class='confluenceTh'> Code </th>
+</tr>
+<tr>
+<td class='confluenceTd'> BRITISH COLUMBIA </td>
+<td class='confluenceTd'> BC </td>
+</tr>
+<tr>
+<td class='confluenceTd'> QUEBEC </td>
+<td class='confluenceTd'> QC </td>
+</tr>
+</tbody></table>
+
+<p><b><tt>SupersetOfInterpreter</tt> : The requirement set should be a superset of the SUD set (all items in the list should be present, extra items are ignored).</b></p>
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> superset of </th>
+<th class='confluenceTh'> Canada Province Codes </th>
+</tr>
+<tr>
+<th class='confluenceTh'> Name </th>
+<th class='confluenceTh'> Code </th>
+</tr>
+<tr>
+<td class='confluenceTd'> ALBERTA </td>
+<td class='confluenceTd'> AB </td>
+</tr>
+<tr>
+<td class='confluenceTd'> BRITISH COLUMBIA </td>
+<td class='confluenceTd'> BC </td>
+</tr>
+<tr>
+<td class='confluenceTd'> MANITOBA </td>
+<td class='confluenceTd'> MB </td>
+</tr>
+<tr>
+<td class='confluenceTd'> NEW BRUNSWICK </td>
+<td class='confluenceTd'> NB </td>
+</tr>
+<tr>
+<td class='confluenceTd'> NEWFOUNDLAND and LABRADOR </td>
+<td class='confluenceTd'> NL </td>
+</tr>
+<tr>
+<td class='confluenceTd'> NOVA SCOTIA </td>
+<td class='confluenceTd'> NS </td>
+</tr>
+<tr>
+<td class='confluenceTd'> NUNAVUT </td>
+<td class='confluenceTd'> NU </td>
+</tr>
+<tr>
+<td class='confluenceTd'> ONTARIO </td>
+<td class='confluenceTd'> ON </td>
+</tr>
+<tr>
+<td class='confluenceTd'> PRINCE EDWARD ISLAND </td>
+<td class='confluenceTd'> PE </td>
+</tr>
+<tr>
+<td class='confluenceTd'> QUEBEC </td>
+<td class='confluenceTd'> QC </td>
+</tr>
+<tr>
+<td class='confluenceTd'> SASKATCHEWAN </td>
+<td class='confluenceTd'> SK </td>
+</tr>
+<tr>
+<td class='confluenceTd'> YUKON </td>
+<td class='confluenceTd'> YT </td>
+</tr>
+<tr>
+<td class='confluenceTd'> Other Province </td>
+<td class='confluenceTd'> OP </td>
+</tr>
+</tbody></table>
+
+<h3><a name="Collection-SourceCode"></a>Source Code</h3>
+<p><span>
+	<span id="includeTitle_GP_INCLUDE_15" style="cursor:pointer;color:blue;font-weight:bold;text-decoration:underline;" onclick="document.getElementById('GP_INCLUDE_15').style.display='block'">CanadaProvinceCodesFixture.java</span>
+	<div id="GP_INCLUDE_15" width="100%" style="cursor:pointer;padding:0px 2px;border: 1px solid #cc0000;display:none;" onclick="document.getElementById('GP_INCLUDE_15').style.display='none'"><div class="code panel" style="border-width: 1px;"><div class="codeHeader panelHeader" style="border-bottom-width: 1px;"><b>CanadaProvinceCodesFixture.java</b></div><div class="codeContent panelContent">
+<pre class="code-java"><span class="code-keyword">package</span> com.greenpepper.confluence.demo.collection;
+
+<span class="code-keyword">import</span> java.util.Set;
+
+<span class="code-keyword">public</span> class CanadaProvinceCodesFixture
+{
+
+  <span class="code-keyword">public</span> Set<Province> query()
+  {
+    <span class="code-keyword">return</span> Country.canada().provinces();
+  }
+}</pre>
+</div></div></div>
+</span>
+<br/>
+<span>
+	<span id="includeTitle_GP_INCLUDE_16" style="cursor:pointer;color:blue;font-weight:bold;text-decoration:underline;" onclick="document.getElementById('GP_INCLUDE_16').style.display='block'">Country.java</span>
+	<div id="GP_INCLUDE_16" width="100%" style="cursor:pointer;padding:0px 2px;border: 1px solid #cc0000;display:none;" onclick="document.getElementById('GP_INCLUDE_16').style.display='none'"><div class="code panel" style="border-width: 1px;"><div class="codeHeader panelHeader" style="border-bottom-width: 1px;"><b>Country.java</b></div><div class="codeContent panelContent">
+<pre class="code-java"><span class="code-keyword">package</span> com.greenpepper.confluence.demo.collection;
+
+<span class="code-keyword">import</span> java.util.Set;
+<span class="code-keyword">import</span> java.util.TreeSet;
+
+<span class="code-keyword">public</span> class Country
+{
+
+  <span class="code-keyword">private</span> <span class="code-object">String</span> name;
+  <span class="code-keyword">private</span> Set<Province> provinces = <span class="code-keyword">new</span> TreeSet<Province>();
+
+  <span class="code-keyword">private</span> Country(<span class="code-object">String</span> name)
+  {
+    <span class="code-keyword">this</span>.name = name;
+  }
+
+  <span class="code-keyword">public</span> <span class="code-object">String</span> getName()
+  {
+    <span class="code-keyword">return</span> name;
+  }
+
+  <span class="code-keyword">public</span> Set<Province> provinces()
+  {
+    <span class="code-keyword">return</span> provinces;
+  }
+
+  <span class="code-keyword">public</span> <span class="code-keyword">static</span> Country canada()
+  {
+    Country canada = <span class="code-keyword">new</span> Country(<span class="code-quote">"CANADA"</span>);
+    canada.provinces.add(<span class="code-keyword">new</span> Province(<span class="code-quote">"ALBERTA"</span>, <span class="code-quote">"AB"</span>));
+    canada.provinces.add(<span class="code-keyword">new</span> Province(<span class="code-quote">"BRITISH COLUMBIA"</span>, <span class="code-quote">"BC"</span>));
+    canada.provinces.add(<span class="code-keyword">new</span> Province(<span class="code-quote">"MANITOBA"</span>, <span class="code-quote">"MB"</span>));
+    canada.provinces.add(<span class="code-keyword">new</span> Province(<span class="code-quote">"NEW BRUNSWICK"</span>, <span class="code-quote">"NB"</span>));
+    canada.provinces.add(<span class="code-keyword">new</span> Province(<span class="code-quote">"NEWFOUNDLAND and LABRADOR"</span>, <span class="code-quote">"NL"</span>));
+    canada.provinces.add(<span class="code-keyword">new</span> Province(<span class="code-quote">"NOVA SCOTIA"</span>, <span class="code-quote">"NS"</span>));
+    canada.provinces.add(<span class="code-keyword">new</span> Province(<span class="code-quote">"NUNAVUT"</span>, <span class="code-quote">"NU"</span>));
+    canada.provinces.add(<span class="code-keyword">new</span> Province(<span class="code-quote">"ONTARIO"</span>, <span class="code-quote">"ON"</span>));
+    canada.provinces.add(<span class="code-keyword">new</span> Province(<span class="code-quote">"PRINCE EDWARD ISLAND"</span>, <span class="code-quote">"PE"</span>));
+    canada.provinces.add(<span class="code-keyword">new</span> Province(<span class="code-quote">"QUEBEC"</span>, <span class="code-quote">"QC"</span>));
+    canada.provinces.add(<span class="code-keyword">new</span> Province(<span class="code-quote">"SASKATCHEWAN"</span>, <span class="code-quote">"SK"</span>));
+    canada.provinces.add(<span class="code-keyword">new</span> Province(<span class="code-quote">"YUKON"</span>, <span class="code-quote">"YT"</span>));
+    <span class="code-keyword">return</span> canada;
+  }
+}</pre>
+</div></div></div>
+</span>
+<br/>
+<span>
+	<span id="includeTitle_GP_INCLUDE_17" style="cursor:pointer;color:blue;font-weight:bold;text-decoration:underline;" onclick="document.getElementById('GP_INCLUDE_17').style.display='block'">Province.java</span>
+	<div id="GP_INCLUDE_17" width="100%" style="cursor:pointer;padding:0px 2px;border: 1px solid #cc0000;display:none;" onclick="document.getElementById('GP_INCLUDE_17').style.display='none'"><div class="code panel" style="border-width: 1px;"><div class="codeHeader panelHeader" style="border-bottom-width: 1px;"><b>Province.java</b></div><div class="codeContent panelContent">
+<pre class="code-java"><span class="code-keyword">package</span> com.greenpepper.confluence.demo.collection;
+
+<span class="code-keyword">public</span> class Province
+    <span class="code-keyword">implements</span> Comparable
+{
+
+  <span class="code-keyword">private</span> <span class="code-object">String</span> name;
+  <span class="code-keyword">private</span> <span class="code-object">String</span> code;
+
+  <span class="code-keyword">public</span> Province(<span class="code-object">String</span> name, <span class="code-object">String</span> code)
+  {
+    <span class="code-keyword">this</span>.name = name;
+    <span class="code-keyword">this</span>.code = code;
+  }
+
+  <span class="code-keyword">public</span> <span class="code-object">String</span> getName()
+  {
+    <span class="code-keyword">return</span> name;
+  }
+
+  <span class="code-keyword">public</span> void setName(<span class="code-object">String</span> name)
+  {
+    <span class="code-keyword">this</span>.name = name;
+  }
+
+  <span class="code-keyword">public</span> <span class="code-object">String</span> getCode()
+  {
+    <span class="code-keyword">return</span> code;
+  }
+
+  <span class="code-keyword">public</span> void setCode(<span class="code-object">String</span> code)
+  {
+    <span class="code-keyword">this</span>.code = code;
+  }
+
+  <span class="code-keyword">public</span> <span class="code-object">int</span> compareTo(<span class="code-object">Object</span> o)
+  {
+    <span class="code-keyword">return</span> getName().compareTo(((Province)o).getName());
+  }
+}</pre>
+</div></div></div>
+</span>
+</p>
+</div>
+</body></html>

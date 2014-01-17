@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project name="greenpepper-runner" default="run">
+	<target name="run">
+		<property name="m2.repo" value="${user.home}/.m2/repository"/>
+		<property name="greenpepper.version" value="3.0"/>
+
+		<path id="greenpepper.class.path">
+			<pathelement path="${m2.repo}/greenpepper-open/greenpepper-core/${greenpepper.version}/greenpepper-core-${greenpepper.version}.jar"/>
+			<pathelement path="${m2.repo}/greenpepper-open/greenpepper-extensions-java/${greenpepper.version}/greenpepper-extensions-java-${greenpepper.version}.jar"/>
+			<pathelement path="${m2.repo}/commons-codec/commons-codec/1.3/commons-codec-1.3.jar"/>
+			<pathelement path="${m2.repo}/xmlrpc/xmlrpc/2.0.1/xmlrpc-2.0.1.jar"/>
+			<pathelement path="${m2.repo}/greenpepper-open/greenpepper-extensions-php/${greenpepper.version}/greenpepper-extensions-php-${greenpepper.version}-jar-with-dependencies.jar"/>
+		</path>
+
+		<path id="project.class.path">
+			<path refid="greenpepper.class.path"/>
+		</path>
+
+		<taskdef name="greenpepper" classname="com.greenpepper.runner.ant.AntTaskRunner" classpathref="greenpepper.class.path"/>
+
+		<greenpepper suite="true"
+					 input="src/test/specs"
+					 output="GreenPepperReports"
+					 outputType="plain"
+					 failonerror="true"
+					 debug="true">
+
+			<classpath refid="project.class.path"/>
+
+			<systemUnderDevelopment class="com.greenpepper.phpsud.PHPSud">
+				<arguments>default</arguments>
+				<arguments>src/test/php</arguments>
+				<arguments>init.php</arguments>
+			</systemUnderDevelopment>
+
+		</greenpepper>
+	</target>
+</project>

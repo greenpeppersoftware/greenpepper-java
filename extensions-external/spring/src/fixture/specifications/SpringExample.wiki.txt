@@ -1,0 +1,91 @@
+Source : http://www.greenpeppersoftware.com/confluence/display/GPO/Spring+Example
+--------------------------------------------------------------------------------
+
+{greenpepper-import:com.greenpepper.extensions.spring}
+
+Spring beans can be hook in {greenpepper-logo} as fixtures by specifying the Spring factory implementing the factory interface:
+
+{greenpepper-info}
+
+# {greenpepper-logo} command line: java -cp \{GreenPepperClassPaths\} CommandLineRunner -f SpringFixtureFactory \{InputFile\} \{OutputFile\}
+# {greenpepper-logo} server: database table SYSTEM_UNDER_TEST, columns FIXTURE_FACTORY="SpringFixtureFactory" and FIXTURE_FACTORY_ARGS="\{SpringApplicationContextFile\}" of your SUT entry.
+
+{greenpepper-info}
+
+This first example show the use of a spring bean as a fixture:
+
+|| Rule for || Spring ||
+| Application Context Content | table in greenpepper format | after execution? |
+| {code}&#60;beans&#62;
+    &#60;bean id="CalculatorBeanId" class="com.greenpepper.extensions.spring.beans.CalculatorBean"/&#62;
+&#60;/beans&#62;{code} | \[Rule for\]\[CalculatorBeanId\]
+ \[op1\]\[op2\]\[sum?\]
+ \[1\]\[2\]\[3\] | "\[Rule for\]\[CalculatorBeanId\]
+\[op1\]\[op2\]\[sum?\]
+\[1\]\[2\]\[3 RightAnnotation\]" |
+
+If the bean to instanciate as a fixture does not exist, an error is thrown:
+
+|| Rule for || Spring ||
+| Application Context Content | table in greenpepper format | after execution? |
+| {code}&#60;beans&#62;
+    &#60;bean id="CalculatorBeanId" class="com.greenpepper.extensions.spring.beans.CalculatorBean"/&#62;
+&#60;/beans&#62;{code} | \[Rule for\]\[UnexistentBeanId\]
+ \[op1\]\[op2\]\[sum?\]
+ \[1\]\[2\]\[3\] | "\[Rule for ExceptionAnnotation\]\[UnexistentBeanId\]
+ \[op1\]\[op2\]\[sum?\]
+ \[1\]\[2\]\[3\]" |
+
+Here's an example of one bean wired to another bean:
+
+|| Rule for || Spring ||
+| Application Context Content | table in greenpepper format | after execution? |
+| {code}&#60;beans&#62;
+    &#60;bean id="CalculatorBeanId" class="com.greenpepper.extensions.spring.beans.CalculatorBean"/&#62;
+    &#60;bean id="CalculatorWiredBeanId" class="com.greenpepper.extensions.spring.beans.CalculatorWiredBean"&#62;
+      &#60;constructor-arg&#62;
+        &#60;ref bean="CalculatorBeanId"/&#62;
+      &#60;/constructor-arg&#62;
+    &#60;/bean&#62;
+&#60;/beans&#62;{code} | \[Rule for\]\[CalculatorWiredBeanId\]
+ \[op1\]\[op2\]\[sum?\]
+ \[1\]\[2\]\[3\] | "\[Rule for\]\[CalculatorWiredBeanId\]
+ \[op1\]\[op2\]\[sum?\]
+ \[1\]\[2\]\[3 RightAnnotation\]" |
+
+A fixture class can be outside the Spring context and be dependent on beans declared in the Spring context. When that fixture is instanciated, dependencies are resolved by dynamically injecting it in the Spring context, and let Spring instanciate it:
+
+|| Rule for || Spring ||
+| Application Context Content | table in greenpepper format | after execution? |
+| {code}&#60;beans&#62;
+    &#60;bean id="CalculatorBeanId" class="com.greenpepper.extensions.spring.beans.CalculatorBean"/&#62;
+&#60;/beans&#62;{code} | \[Rule for\]\[ExternalCalculatorBeanDependent\]
+ \[op1\]\[op2\]\[sum?\]
+ \[1\]\[2\]\[3\] | "\[Rule for\]\[ExternalCalculatorBeanDependent\]
+ \[op1\]\[op2\]\[sum?\]
+ \[1\]\[2\]\[3 RightAnnotation\]" |
+
+A fixture outside Spring context and not dependent on it is also instanciated correctly:
+
+|| Rule for || Spring ||
+| Application Context Content | table in greenpepper format | after execution? |
+| {code}&#60;beans&#62;
+    &#60;bean id="CalculatorBeanId" class="com.greenpepper.extensions.spring.beans.CalculatorBean"/&#62;
+&#60;/beans&#62;{code} | \[Rule for\]\[IndependentExternalCalculator\]
+ \[op1\]\[op2\]\[sum?\]
+ \[1\]\[2\]\[3\] | "\[Rule for\]\[IndependentExternalCalculator\]
+ \[op1\]\[op2\]\[sum?\]
+ \[1\]\[2\]\[3 RightAnnotation\]" |
+
+In fact, when the Spring IOC is use, all fixture are instantiated by it. All fixture creation errors are reported by Spring:
+
+|| Rule for || Spring ||
+| Application Context Content | table in greenpepper format | after execution? |
+| {code}&#60;beans&#62;
+    &#60;bean id="CalculatorBeanId" class="com.greenpepper.extensions.spring.beans.CalculatorBean"/&#62;
+&#60;/beans&#62;{code} | \[Rule for\]\[UnexistentExternalCalculator\]
+ \[op1\]\[op2\]\[sum?\]
+ \[1\]\[2\]\[3\] | "\[Rule for ExceptionAnnotation\]\[UnexistentExternalCalculator\]
+ \[op1\]\[op2\]\[sum?\]
+ \[1\]\[2\]\[3\]" |
+

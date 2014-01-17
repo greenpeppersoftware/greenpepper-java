@@ -1,0 +1,54 @@
+<project name="greenpepper" default="test">
+
+	<property name="gp.version" value="2.6m3-SNAPSHOT"/>
+	<property name="gp.target" value="snapshots"/>
+
+    <condition property="grails" value="grails.bat">
+        <os family="windows"/>
+    </condition>
+    <property name="grails" value="grails" />
+
+	<!-- ================================= 
+          target: clean              
+         ================================= -->
+    <target name="clean" description="--> Cleans a Grails application">
+		<exec executable="${grails}" failonerror="true">
+			<arg value="clean"/>
+		</exec>                               
+    </target>
+
+	<!-- ================================= 
+          target: war              
+         ================================= -->
+    <target name="war" description="--> Creates a WAR of a Grails application">
+		<exec executable="${grails}" failonerror="true">
+			<arg value="war"/>
+		</exec>                               
+    </target>
+	
+	<!-- ================================= 
+          target: test              
+         ================================= -->
+    <target name="test" description="--> Run a Grails applications unit tests">
+		<exec executable="${grails}" failonerror="true">
+			<arg value="test-app"/>
+		</exec>                               
+    </target>
+
+	<!-- ================================= 
+          target: test              
+         ================================= -->
+    <target name="package-plugin" description="--> Package a Grails plugin">
+		<exec executable="${grails}" failonerror="true">
+			<arg value="package-plugin"/>
+		</exec>                       
+		<copy file="${basedir}/grails-greenpepper-0.1.zip" todir="/opt/greenpepper-repos/${gp.target}/greenpepper-open/greenpepper-extensions-grails/${gp.version}"/>
+    </target>
+
+	<!-- ================================= 
+          target: deploy              
+         ================================= -->
+    <target name="deploy" depends="war" description="--> The deploy target (initially empty)">
+        <!-- TODO -->
+    </target>
+</project>

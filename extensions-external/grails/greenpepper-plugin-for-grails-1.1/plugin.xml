@@ -1,0 +1,16 @@
+<plugin name='greenpepper' version='0.1' grailsVersion='1.1.2 &gt; *'>
+  <author>fdenommee, clapointe</author>
+  <authorEmail>fdenommee@pyxis-tech.com, clapointe@pyxis-tech.com</authorEmail>
+  <title>GreenPepper Plugin</title>
+  <description>Provides various GreenPepper functionnalities and more.
+</description>
+  <documentation>http://www.greenpeppersoftware.com/confluence/display/GPWODOC/Grails+Plugin</documentation>
+  <resources>
+    <resource>GreenpepperTagLib</resource>
+    <resource>GreenPepperRunnerController</resource>
+    <resource>GreenPepperController</resource>
+    <resource>DataSource</resource>
+    <resource>UrlMappings</resource>
+  </resources>
+  <dependencies />
+</plugin>

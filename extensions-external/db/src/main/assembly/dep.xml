@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<assembly>
+	<id>complete</id>
+	<formats>
+		<format>jar</format>
+	</formats>
+	<includeBaseDirectory>false</includeBaseDirectory>
+	<dependencySets>
+		<dependencySet>
+			<includes>
+				<include>com.neuri.dbfit:core</include>
+				<include>com.neuri.dbfit:mysql</include>
+				<include>com.neuri.dbfit:oracle</include>
+				<include>com.neuri.dbfit:sqlserver</include>
+			</includes>
+			<unpack>true</unpack>
+			<unpackOptions>
+				<excludes>
+					<exclude>org/xml/**</exclude>
+					<exclude>specs/**</exclude>
+					<exclude>ALongClassName.class</exclude>
+					<exclude>greenpepper-server.cfg.xml</exclude>
+					<exclude>results.txt</exclude>
+					<exclude>WithACustomFixtureFactory.html</exclude>
+					<exclude>log4j.properties</exclude>
+					<exclude>log4j.properties.template</exclude>
+					<exclude>META-INF/**</exclude>
+				</excludes>
+			</unpackOptions>
+			<outputFileNameMapping/>
+		</dependencySet>
+	</dependencySets>
+	<fileSets>
+		<fileSet>
+			<directory>target/classes</directory>
+			<outputDirectory/>
+		</fileSet>
+	</fileSets>
+</assembly>

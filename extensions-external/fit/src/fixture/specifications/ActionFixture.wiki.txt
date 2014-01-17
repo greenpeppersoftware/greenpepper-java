@@ -1,0 +1,24 @@
+This is a FIT specification (SOURCE : http://fit.c2.com/wiki.cgi?NetworkExample).
+
+||fit.ActionFixture||
+|start | eg.net.Simulator | |
+|check | nodes | 0 |
+|press | new city | |
+|enter | name | Portland |
+|enter | zip | 1,1,1 |
+|enter | population | 1.5e6 |
+|enter | coord | 45 30.0 n 122 45.0 w |
+|check | coord | N45.5 W122.75 |
+|press | ok | |
+|check | nodes | 1 |
+|press | new city | |
+|enter | name | Salem |
+|enter | population | .6e6 |
+|enter | zip | 1,1,2 |
+|enter | coord | 44 59' 22" n 122 28' 59" w |
+|press | ok | |
+|check | nodes | 2 |
+|press | new city | |
+|enter | name | Seattle |
+|press | cancel | |
+|check | nodes | 2 |

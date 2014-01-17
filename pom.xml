@@ -1,0 +1,273 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <!--
+     - Basic Project Information
+     -->
+    <groupId>greenpepper-open</groupId>
+    <artifactId>greenpepper-open</artifactId>
+    <packaging>pom</packaging>
+    <version>3.0</version>
+    <name>GreenPepper Open</name>
+
+    <properties>
+        <greenpepper.maven.plugin.version>2.9</greenpepper.maven.plugin.version>
+    </properties>
+
+    <!--
+     - GreenPepperOpen modules
+     -->
+    <modules>
+        <module>core</module>
+        <module>extensions</module>
+        <module>samples</module>
+        <module>confluence.demo</module>
+    </modules>
+
+    <!--
+     - Dependencies that we want for all modules
+     -->
+    <dependencies>
+        <!-- **** Basic dependencies  **** -->
+        <!-- **** Test level (not distributed) dependencies  **** -->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.8.1</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.jmock</groupId>
+            <artifactId>jmock</artifactId>
+            <version>2.5.1</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.jmock</groupId>
+            <artifactId>jmock-junit4</artifactId>
+            <version>2.5.1</version>
+            <scope>test</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>junit</groupId>
+                    <artifactId>junit-dep</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-core</artifactId>
+			<version>1.8.5</version>
+			<scope>test</scope>
+		</dependency>
+    </dependencies>
+
+    <!--
+     - Extra project information
+     -->
+    <url>http://www.greenpeppersoftware.com</url>
+    <issueManagement>
+        <url>http://www.greenpeppersoftware.com/jira</url>
+    </issueManagement>
+    <inceptionYear>2005</inceptionYear>
+    <organization>
+        <name>Pyxis Technologies</name>
+        <url>http://www.pyxis-tech.com</url>
+    </organization>
+    <scm>
+        <connection>scm:svn:http://www.greenpeppersoftware.com/svn/tags/greenpepper-open-2.6</connection>
+        <url>http://www.greenpeppersoftware.com/fisheye/viewrep/GreenPepperOpen/tags/greenpepper-open-2.6</url>
+        <developerConnection>scm:svn:http://www.greenpeppersoftware.com/svn/trunk/java</developerConnection>
+    </scm>
+
+    <!--
+     - Configure the build plugins
+     -->
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.5</source>
+                    <target>1.5</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+			<!--
+            <plugin>
+                <groupId>com.atlassian.maven.plugins</groupId>
+                <artifactId>maven-clover2-plugin</artifactId>
+                <configuration>
+                    <jdk>1.5</jdk>
+                    <licenseLocation>${settings.localRepository}/clover.license</licenseLocation>
+                </configuration>
+                <executions>
+                    <execution>
+                        <phase>pre-site</phase>
+                        <goals>
+                            <goal>instrument</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+			-->
+        </plugins>
+		<!--
+        <extensions>
+            <extension>
+                <groupId>org.apache.maven.wagon</groupId>
+                <artifactId>wagon-ssh-external</artifactId>
+                <version>1.0-beta-1</version>
+            </extension>
+        </extensions>
+		-->
+    </build>
+
+    <repositories>
+        <repository>
+            <id>GPS</id>
+            <name>GreenPepperSoftware</name>
+            <url>http://www.greenpeppersoftware.com/nexus/content/groups/public</url>
+            <releases>
+                <enabled>true</enabled>
+                <updatePolicy>always</updatePolicy>
+                <checksumPolicy>warn</checksumPolicy>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+        <repository>
+            <id>GPS Snapshots</id>
+            <name>GreenPepperSoftware Snapshots</name>
+            <url>http://www.greenpeppersoftware.com/nexus/content/groups/public-snapshots</url>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+                <updatePolicy>always</updatePolicy>
+                <checksumPolicy>warn</checksumPolicy>
+            </snapshots>
+        </repository>
+    </repositories>
+
+    <pluginRepositories>
+        <pluginRepository>
+            <id>GPS</id>
+            <name>GreenPepperSoftware</name>
+            <url>http://www.greenpeppersoftware.com/nexus/content/groups/public</url>
+            <releases>
+                <enabled>true</enabled>
+                <updatePolicy>always</updatePolicy>
+                <checksumPolicy>warn</checksumPolicy>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </pluginRepository>
+        <pluginRepository>
+            <id>GPS Snapshots</id>
+            <name>GreenPepperSoftware Snapshots</name>
+            <url>http://www.greenpeppersoftware.com/nexus/content/groups/public-snapshots</url>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+                <updatePolicy>always</updatePolicy>
+                <checksumPolicy>warn</checksumPolicy>
+            </snapshots>
+        </pluginRepository>
+    </pluginRepositories>
+
+    <!--
+     - Configure the reporting plugins
+     -->
+    <reporting>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>surefire-report-maven-plugin</artifactId>
+            </plugin>
+			<!--
+            <plugin>
+                <groupId>com.atlassian.maven.plugins</groupId>
+                <artifactId>maven-clover2-plugin</artifactId>
+                <configuration>
+                    <jdk>1.5</jdk>
+                    <licenseLocation>${settings.localRepository}/clover.license</licenseLocation>
+                </configuration>
+            </plugin>
+			-->
+        </plugins>
+    </reporting>
+
+    <!--
+     - Profiles for deployment
+     -->
+    <profiles>
+        <profile>
+            <id>cetus</id>
+            <properties>
+                <deploy.host>cetus</deploy.host>
+                <deploy.path>opt/greenpepper-repos</deploy.path>
+                <deploy.url>scp://${deploy.host}/${deploy.path}</deploy.url>
+            </properties>
+        </profile>
+        <profile>
+            <id>gps</id>
+            <properties>
+                <deploy.host>greenpeppersoftware.com</deploy.host>
+                <deploy.path>opt/greenpepper-repos</deploy.path>
+                <deploy.url>scp://${deploy.host}/${deploy.path}</deploy.url>
+            </properties>
+        </profile>
+        <profile>
+            <id>local</id>
+            <properties>
+                <deploy.host>localhost</deploy.host>
+                <deploy.path>c/opt/greenpepper-repos</deploy.path>
+                <deploy.url>${deploy.host}/${deploy.path}</deploy.url>
+            </properties>
+        </profile>
+    </profiles>
+
+    <!--
+     - Deployment of GrennPepper's artifacts and generated site
+     -->
+    <distributionManagement>
+        <repository>
+            <id>${deploy.host}</id>
+            <name>GreenPepper Release Deployment</name>
+            <url>${deploy.url}/releases</url>
+        </repository>
+        <snapshotRepository>
+            <id>${deploy.host}</id>
+            <name>GreenPepper Snapshots Deployment</name>
+            <url>${deploy.url}/snapshots</url>
+        </snapshotRepository>
+        <site>
+            <id>${deploy.host}</id>
+            <url>${deploy.url}/site</url>
+        </site>
+    </distributionManagement>
+
+</project>

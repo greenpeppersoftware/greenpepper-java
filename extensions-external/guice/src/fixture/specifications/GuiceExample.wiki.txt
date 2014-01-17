@@ -1,0 +1,52 @@
+{greenpepper-import:com.greenpepper.extensions.guice}
+
+This specification is almost the same specification as the {{Demo Space - PhonBook}} example but we are using [Guice|http://code.google.com/p/google-guice/] to inject singleton instance of the _PhoneBook_ to our fixtures.
+
+h3. Setup Example
+The {{contact}} column string value will be converted using the [Self Conversion|http://www.greenpeppersoftware.com/confluence/display/GREENPEPPER/Type+conversion+(JAVA)].
+
+|| setup || phone book |
+|| contact ||
+| Fred, Flintstone, (123) 456-7890 |
+| Barney, Rubble, (123) 321-7666 |
+| Great, Gazoo, (123) 989-4455 |
+
+h3. List Of Example
+We list all _PhoneBookEntry_ found in the _PhoneBook_ in the same order as it was added to the list.
+
+|| list of || phone book ||
+|| First Name || Last Name || Number ||
+| Fred | Flintstone | (123) 456-7890 |
+| Barney | Rubble | (123) 321-7666 |
+| Great | Gazoo | (123) 989-4455 |
+
+h3. Do With Example
+
+|| do with || phone book ||
+
+We verify the contact information of {{Fred Flintstone}}.
+| check | that number of | Fred | | Flintstone | is | (123) 456-7890 |
+
+We update the phone number of {{Fred Flintstone}}.
+| accept | update number of | Fred | | Flintstone | to | (123) 567-8904 |
+
+We verify that the update of the phone number of {{Fred Flintstone}} is correct.
+| check | that number of | Fred | | Flintstone | is | (123) 567-8904 |
+
+We verify that {{Wilma Flinstone}} is not already in the list of contact.
+| check | that number of | Wilma | | Flintstone | is | nothing |
+
+We try to update the contact {{Wilma Flintstone}} that do not exist (the check confirms that {{Wilma Flintstone}} in not in the list).
+| reject | update number of | Wilma | | Flintstone | to | (123) 567-8904 |
+
+We inserts {{Wilma Flintstone}} in the list.
+| insert | Wilma | | Flintstone | with number | (123) 567-8904 |
+
+| end |
+
+h3. Subset Of Example
+We confirm using the {{subset of}} interpreter that {{Wilma Flintstone}} now belong to our list of contact. This example refer to another fixture class where the _PhoneBook_ instance is injected using Guice (we already have element in the list from the previous actions).
+
+|| subset of || phone book list ||
+|| First Name || Last Name || Number ||
+| Wilma | Flintstone | (123) 567-8904 |

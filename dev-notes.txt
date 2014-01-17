@@ -1,0 +1,4 @@
+mvn versions:set -DnewVersion=3.0m2-SNAPSHOT
+
+-- to remove all pom...backup
+mvn versions:commit
