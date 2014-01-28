@@ -92,6 +92,7 @@
                     </resources>
                     <repositories>
                         <repository>
+                        <!--
                             <type>com.greenpepper.runner.repository.GreenPepperRepository</type>
                             <root>
                                 <![CDATA[http://www.greenpeppersoftware.com/confluence/rpc/xmlrpc?handler=greenpepper1&sut=GreenPepperOpen - Core Java&includeStyle=false&postExecutionResult=${greenpepper.postExecutionResult}]]>
@@ -100,6 +101,7 @@
                             <suites>
                                 <suite>GreenPepper-GREENPEPPER</suite>
                             </suites>
+                      -->
                         </repository>
                     </repositories>
                 </configuration>
