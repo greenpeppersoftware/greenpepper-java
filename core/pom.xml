@@ -11,7 +11,7 @@
     <parent>
         <groupId>greenpepper-open</groupId>
         <artifactId>greenpepper-open</artifactId>
-        <version>3.0</version>
+        <version>3.1</version>
     </parent>
 
     <dependencies>
@@ -91,18 +91,14 @@
                         </resource>
                     </resources>
                     <repositories>
-                        <repository>
-                        <!--
-                            <type>com.greenpepper.runner.repository.GreenPepperRepository</type>
-                            <root>
-                                <![CDATA[http://www.greenpeppersoftware.com/confluence/rpc/xmlrpc?handler=greenpepper1&sut=GreenPepperOpen - Core Java&includeStyle=false&postExecutionResult=${greenpepper.postExecutionResult}]]>
-                            </root>
-                            <name>greenpepper</name>
+						<repository>
+                            <name>Seeds</name>
+                            <type>com.greenpepper.repository.FileSystemRepository</type>
+                            <root>${basedir}/src/fixture/specs</root>
                             <suites>
-                                <suite>GreenPepper-GREENPEPPER</suite>
+                                <suite>Seeds</suite>
                             </suites>
-                      -->
-                        </repository>
+                        </repository>					
                     </repositories>
                 </configuration>
                 <executions>

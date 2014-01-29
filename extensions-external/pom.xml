@@ -5,12 +5,12 @@
 	<artifactId>greenpepper-extensions-parent</artifactId>
 	<packaging>pom</packaging>
 	<name>GreenPepper Extensions Parent</name>
-	<version>3.0</version>
+	<version>3.1</version>
 
 	<parent>
 		<groupId>greenpepper-open</groupId>
 		<artifactId>greenpepper-open</artifactId>
-		<version>3.0</version>
+		<version>3.1</version>
 	</parent>
 
 	<!--

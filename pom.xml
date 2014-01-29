@@ -7,11 +7,11 @@
     <groupId>greenpepper-open</groupId>
     <artifactId>greenpepper-open</artifactId>
     <packaging>pom</packaging>
-    <version>3.0</version>
+    <version>3.1</version>
     <name>GreenPepper Open</name>
 
     <properties>
-        <greenpepper.maven.plugin.version>2.9</greenpepper.maven.plugin.version>
+        <greenpepper.maven.plugin.version>3.1</greenpepper.maven.plugin.version>
     </properties>
 
     <!--
@@ -66,18 +66,14 @@
      - Extra project information
      -->
     <url>http://www.greenpeppersoftware.com</url>
-    <issueManagement>
-        <url>http://www.greenpeppersoftware.com/jira</url>
-    </issueManagement>
     <inceptionYear>2005</inceptionYear>
     <organization>
         <name>Pyxis Technologies</name>
         <url>http://www.pyxis-tech.com</url>
     </organization>
     <scm>
-        <connection>scm:svn:http://www.greenpeppersoftware.com/svn/tags/greenpepper-open-2.6</connection>
-        <url>http://www.greenpeppersoftware.com/fisheye/viewrep/GreenPepperOpen/tags/greenpepper-open-2.6</url>
-        <developerConnection>scm:svn:http://www.greenpeppersoftware.com/svn/trunk/java</developerConnection>
+        <connection>https://github.com/greenpeppersoftware/greenpepper-java.git</connection>
+        <url>https://github.com/greenpeppersoftware/greenpepper-java</url>
     </scm>
 
     <!--
@@ -136,64 +132,6 @@
 		-->
     </build>
 
-    <repositories>
-        <repository>
-            <id>GPS</id>
-            <name>GreenPepperSoftware</name>
-            <url>http://www.greenpeppersoftware.com/nexus/content/groups/public</url>
-            <releases>
-                <enabled>true</enabled>
-                <updatePolicy>always</updatePolicy>
-                <checksumPolicy>warn</checksumPolicy>
-            </releases>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
-        </repository>
-        <repository>
-            <id>GPS Snapshots</id>
-            <name>GreenPepperSoftware Snapshots</name>
-            <url>http://www.greenpeppersoftware.com/nexus/content/groups/public-snapshots</url>
-            <releases>
-                <enabled>false</enabled>
-            </releases>
-            <snapshots>
-                <enabled>true</enabled>
-                <updatePolicy>always</updatePolicy>
-                <checksumPolicy>warn</checksumPolicy>
-            </snapshots>
-        </repository>
-    </repositories>
-
-    <pluginRepositories>
-        <pluginRepository>
-            <id>GPS</id>
-            <name>GreenPepperSoftware</name>
-            <url>http://www.greenpeppersoftware.com/nexus/content/groups/public</url>
-            <releases>
-                <enabled>true</enabled>
-                <updatePolicy>always</updatePolicy>
-                <checksumPolicy>warn</checksumPolicy>
-            </releases>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
-        </pluginRepository>
-        <pluginRepository>
-            <id>GPS Snapshots</id>
-            <name>GreenPepperSoftware Snapshots</name>
-            <url>http://www.greenpeppersoftware.com/nexus/content/groups/public-snapshots</url>
-            <releases>
-                <enabled>false</enabled>
-            </releases>
-            <snapshots>
-                <enabled>true</enabled>
-                <updatePolicy>always</updatePolicy>
-                <checksumPolicy>warn</checksumPolicy>
-            </snapshots>
-        </pluginRepository>
-    </pluginRepositories>
-
     <!--
      - Configure the reporting plugins
      -->
@@ -219,55 +157,5 @@
 			-->
         </plugins>
     </reporting>
-
-    <!--
-     - Profiles for deployment
-     -->
-    <profiles>
-        <profile>
-            <id>cetus</id>
-            <properties>
-                <deploy.host>cetus</deploy.host>
-                <deploy.path>opt/greenpepper-repos</deploy.path>
-                <deploy.url>scp://${deploy.host}/${deploy.path}</deploy.url>
-            </properties>
-        </profile>
-        <profile>
-            <id>gps</id>
-            <properties>
-                <deploy.host>greenpeppersoftware.com</deploy.host>
-                <deploy.path>opt/greenpepper-repos</deploy.path>
-                <deploy.url>scp://${deploy.host}/${deploy.path}</deploy.url>
-            </properties>
-        </profile>
-        <profile>
-            <id>local</id>
-            <properties>
-                <deploy.host>localhost</deploy.host>
-                <deploy.path>c/opt/greenpepper-repos</deploy.path>
-                <deploy.url>${deploy.host}/${deploy.path}</deploy.url>
-            </properties>
-        </profile>
-    </profiles>
-
-    <!--
-     - Deployment of GrennPepper's artifacts and generated site
-     -->
-    <distributionManagement>
-        <repository>
-            <id>${deploy.host}</id>
-            <name>GreenPepper Release Deployment</name>
-            <url>${deploy.url}/releases</url>
-        </repository>
-        <snapshotRepository>
-            <id>${deploy.host}</id>
-            <name>GreenPepper Snapshots Deployment</name>
-            <url>${deploy.url}/snapshots</url>
-        </snapshotRepository>
-        <site>
-            <id>${deploy.host}</id>
-            <url>${deploy.url}/site</url>
-        </site>
-    </distributionManagement>
 
 </project>
